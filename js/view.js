@@ -7,7 +7,7 @@ export const view = {
   mainZone: document.getElementById("conteneur"),
 
   // Champ de recherche text
-  rechercheInput: document.getElementById("recherche-input"),
+  rechercheInput: document.getElementById("rechercheInput"),
 
   // Bouton de recherche
   rechercheButton: document.getElementById("btn-lancer-recherche"),

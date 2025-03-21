@@ -35,21 +35,18 @@ constructor() {
  */
 
  async searchByName(name) {  
-
+  
       //On effectue l'appel AJAX avec await fetch car sinon le main n'obtient pas la réponse
-      let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded"
-          }
-      })
+      let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + name);
+      console.log(response);
       
       //On envoie le résultat au model
       if (!response.ok){
-        throw new Error('Erreur HTTP : ' + response.status);
+        consolelog(error);      
       }else{
-          return await response.json();
-        }
+        return await response.json();
       }
+
+  }
 
 }
