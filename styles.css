@@ -49,32 +49,32 @@ h1 {
 }
 
 /* Section Recherche (avec résultats) */
-#section-recherche {
+#section-recherche-cocktail {
   margin-top: 0;
   flex: 1 1 auto;
 }
 
-#bloc-recherche {
+#bloc-recherche-cocktail {
   display: flex;
   margin: 0 auto;
   min-width: 450px;
   flex-direction: row;
 }
 
-#bloc-recherche > input[type="text"],
-#bloc-recherche > button {
+#bloc-recherche-cocktail > input[type="text"],
+#bloc-recherche-cocktail > button {
   display: block;
   font-size: 1.2em;
 }
 
-#bloc-recherche > input[type="text"] {
+#bloc-recherche-cocktail > input[type="text"] {
   color: var(--almost-black);
   flex: 1;
   padding: 0.7em;
   border: 0.3em solid var(--main-green);
 }
 
-#bloc-recherche > button {
+#bloc-recherche-cocktail > button {
   padding: 0.8em 0.8em;
   /* Bordure invisible pour que le hover ne bouge pas le bouton */
   border: 1px solid var(--main-green);
@@ -85,22 +85,22 @@ h1 {
 }
 
 /* Apparences des boutons clicables */
-#bloc-recherche > button.btn_clicable {
+#bloc-recherche-cocktail > button.btn_clicable {
   background-color: var(--main-green);
 }
 
-#bloc-recherche > button:focus {
+#bloc-recherche-cocktail > button:focus {
   /* Pour éviter un affichage disgracieux
 		quand le bouton reste en focus */
   outline: 0 !important;
 }
 
-#bloc-recherche > button.btn_clicable:hover {
+#bloc-recherche-cocktail > button.btn_clicable:hover {
   cursor: pointer;
   border: 1px solid white;
 }
 
-#bloc-recherche > button.btn_clicable:active {
+#bloc-recherche-cocktail > button.btn_clicable:active {
   background-color: var(--active-green);
 }
 
