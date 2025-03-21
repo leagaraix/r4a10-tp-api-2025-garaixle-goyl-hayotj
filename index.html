@@ -30,10 +30,11 @@
         </hgroup>
         
         <!-- Champ de recherche -->
-        <form role="search" id="form-recherche-cocktail">
+        <div role="search" id="form-recherche-cocktail">
           <input id="rechercheInput" name="recherche-cocktail" type="search" placeholder="Cherchez un cocktail (nom, ingrédient)" data-theme="light"/>
           <button id="btn-lancer-recherche" class="orange" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
-        </form>
+          <button id="btn-ajouter-favori" class="rouge" type="submit" value="Chercher"><img id="img-etoile-vide" src="images/etoile-vide.svg" alt="Etoile de favori vide" /></button>
+        </div>
 
       </section>
 
@@ -48,10 +49,11 @@
         
           <div id="bloc-recherche-ingredients">
 
-            <form role="search" id="form-recherche-ingredients">
+            <div role="search" id="form-recherche-ingredients">
               <input name="recherche-cocktail" type="search" placeholder="Cherchez un ingrédient" data-theme="light"/>
               <button id="btn-recherche-ingredients" class="orange" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
-            </form>
+              <button id="btn-ajouter-favori" class="rouge" type="submit" value="Chercher"><img id="img-etoile-vide" src="images/etoile-vide.svg" alt="Etoile de favori vide" /></button>
+            </div>
 
             <!-- TODO :  Insérer une grille contenant les résultats de la recherche -->
             <!-- ! Si pas de recherche, afficher des ingrédients par défaut -->
