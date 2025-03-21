@@ -6,10 +6,6 @@ nav {
     margin-top: 20px;
 }
 
-#img-favoris {
-    width: 50px;
-}
-
 #logo {
     text-decoration: none;
 }
@@ -21,6 +17,17 @@ a {
 a:hover {
     color: #F7B538;
     --pico-primary-hover-underline: #F7B538;
+}
+
+#img-favoris {
+    width: 50px;
+}
+#img-favoris:hover {
+
+    /* J'en suis là : faire une transition plus courte */
+
+    transition: 0.5s;
+    filter: brightness(125%);
 }
 
 /* *** Mise en page partagée *** */
