@@ -12,7 +12,7 @@
 
     <nav>
       <ul><h2>AlchiMix</h2></ul>
-      <ul><img id="img-favoris" src="images/favori.png"/></ul>
+      <ul><a href="favoris.html"><img id="img-favoris" src="images/favori.png"/></a></ul>
     </nav>
 
     <hr/>
@@ -35,7 +35,6 @@
         <form role="search" id="form-recherche-cocktail">
           <input id="rechercheInput" name="recherche-cocktail" type="search" placeholder="Cherchez un cocktail (nom, ingrédient)" />
           <button id="btn-lancer-recherche" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
-          <!-- TODO : essayer de mettre une loupe plutôt que "Chercher" (<img src="images/loupe.svg" alt="Loupe pour recherche" width="22" />) -->
         </form>
 
       </section>
@@ -60,8 +59,34 @@
 
             <!-- TODO :  Insérer une grille contenant les résultats de la recherche -->
             <!-- ! Si pas de recherche, afficher des ingrédients par défaut -->
-            <p>Résultats</p>
-
+            <container class="large">
+              <div id="grid-ingredients" class="grid">
+                <div>
+                  <div>1</div>
+                  <div>2</div>
+                  <div>3</div>
+                  <div>4</div>
+                </div>
+                <div>
+                  <div>1</div>
+                  <div>2</div>
+                  <div>3</div>
+                  <div>4</div>
+                  </div>
+                  <div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                  </div>
+                  <div>
+                    <div>1</div>
+                    <div>2</div>
+                    <div>3</div>
+                    <div>4</div>
+                  </div>
+              </div>
+            </container>
 
           </div>
 
