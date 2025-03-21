@@ -5,8 +5,7 @@ import { view } from './view.js';
 
 let alchimix = new Alchimix();
 
-// ### Initialisation des listeners ###
-console.log(view.rechercheButton);
+// ### Initialisation des listeners#
 // - Gestion de la saisie au clavier
 view.rechercheButton.addEventListener("click", (evt) => {
     console.log(view.rechercheInput.value);
