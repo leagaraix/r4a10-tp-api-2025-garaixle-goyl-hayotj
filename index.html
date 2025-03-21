@@ -33,8 +33,8 @@
         
         <!-- Champ de recherche -->
         <form role="search" id="form-recherche-cocktail">
-          <input id="rechercheInput" name="recherche-cocktail" type="search" placeholder="Cherchez un cocktail (nom, ingrédient)" />
-          <button id="btn-lancer-recherche" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
+          <input id="rechercheInput" name="recherche-cocktail" type="search" placeholder="Cherchez un cocktail (nom, ingrédient)" data-theme="light"/>
+          <button id="btn-lancer-recherche" class="orange" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
         </form>
 
       </section>
@@ -53,8 +53,8 @@
           <div id="bloc-recherche-ingredients">
 
             <form role="search" id="form-recherche-ingredients">
-              <input name="recherche-cocktail" type="search" placeholder="Cherchez un ingrédient" />
-              <button type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
+              <input name="recherche-cocktail" type="search" placeholder="Cherchez un ingrédient" data-theme="light"/>
+              <button id="btn-recherche-ingredients" class="orange" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
             </form>
 
             <!-- TODO :  Insérer une grille contenant les résultats de la recherche -->
@@ -92,12 +92,10 @@
 
         </div>
         
-        <button id="btn-valider-creation" type="button" class="btn_cliquable" title="Créer">Créer</button>
+        <button id="btn-valider-creation" type="button" class="orange" title="Créer">Créer</button>
 
       </section>
 
     </main>
-    <script type="module" src="js/main.js"></script>
   </body>
-  
 </html>

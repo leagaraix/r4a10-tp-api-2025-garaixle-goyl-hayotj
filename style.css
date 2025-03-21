@@ -13,6 +13,10 @@ nav {
 
 /* *** Mise en page partagée *** */
 
+html {
+    background-color: #34040D;
+}
+
 main {
     margin: 0% 5%;
 }
@@ -21,8 +25,14 @@ hgroup {
     text-align: center;
 }
 
+<<<<<<< HEAD
 #img-loupe {
     height: 20px;
+=======
+.orange {
+    background-color: #DB7C26;
+    border: #DB7C26;
+>>>>>>> 4081830854cd47249c0cf7cb5ce0818acac0bb59
 }
 
 
