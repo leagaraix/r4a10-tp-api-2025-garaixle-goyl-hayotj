@@ -25,13 +25,18 @@ hgroup {
     text-align: center;
 }
 
-#img-loupe {
+#img-loupe, #img-etoile-vide, #img-etoile-pleine {
     height: 20px;
 }
 
 .orange {
     background-color: #DB7C26;
     border: #DB7C26;
+}
+
+.rouge {
+    background-color: #CA5D36;
+    border: #CA5D36;
 }
 
 
