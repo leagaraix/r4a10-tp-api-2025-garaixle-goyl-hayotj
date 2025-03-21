@@ -30,7 +30,7 @@
         </hgroup>
         
         <!-- Champ de recherche -->
-        <div role="search" id="form-recherche-cocktail">
+        <div role="search" id="div-recherche-cocktail">
           <input id="rechercheInput" name="recherche-cocktail" type="search" placeholder="Cherchez un cocktail (nom, ingrédient)" data-theme="light"/>
           <button id="btn-lancer-recherche" class="orange" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
           <button id="btn-ajouter-favori" class="rouge" type="submit" value="Chercher"><img id="img-etoile-vide" src="images/etoile-vide.svg" alt="Etoile de favori vide" /></button>
@@ -45,12 +45,33 @@
         <img id="img-fleche" src="images/fleche-gauche.png">
 
         <div id="bloc-creation">
-          <img id="img-verre" src="images/verre.png"/>
+          <div class = parent>
+            <!-- <container class="large child1">
+              <div id="grid-ingredients" class="grid">
+                <div>
+                  <div class="dropZone"></div>
+                  <div class="dropZone"></div>
+                  <div class="dropZone"></div>
+                </div>
+                <div>
+                  <div class="dropZone"></div>
+                  <div class="dropZone"></div>
+                  <div class="dropZone"></div>
+                </div>
+                <div>
+                  <div class="dropZone"></div>
+                  <div class="dropZone"></div>
+                  <div class="dropZone"></div>
+                </div>
+              </div>
+            </container> -->
+            <img id="img-verre" src="images/verre.png" id="verre" class="droppable child2">
+          </div>
         
           <div id="bloc-recherche-ingredients">
 
-            <div role="search" id="form-recherche-ingredients">
-              <input name="recherche-cocktail" type="search" placeholder="Cherchez un ingrédient" data-theme="light"/>
+            <div role="search" id="div-recherche-ingredients">
+              <input name="recherche-ingredients" type="search" placeholder="Cherchez un ingrédient" data-theme="light"/>
               <button id="btn-recherche-ingredients" class="orange" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
               <button id="btn-ajouter-favori" class="rouge" type="submit" value="Chercher"><img id="img-etoile-vide" src="images/etoile-vide.svg" alt="Etoile de favori vide" /></button>
             </div>
@@ -60,29 +81,29 @@
             <container class="large">
               <div id="grid-ingredients" class="grid">
                 <div>
-                  <div>1</div>
-                  <div>2</div>
-                  <div>3</div>
-                  <div>4</div>
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
                 </div>
                 <div>
-                  <div>1</div>
-                  <div>2</div>
-                  <div>3</div>
-                  <div>4</div>
-                  </div>
-                  <div>
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                  </div>
-                  <div>
-                    <div>1</div>
-                    <div>2</div>
-                    <div>3</div>
-                    <div>4</div>
-                  </div>
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                </div>
+                <div>
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                </div>
+                <div>
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                  <img class="ingredient" src="images/menthe.png">
+                </div>
               </div>
             </container>
 
@@ -96,5 +117,6 @@
 
     </main>
     <script type="module" src="js/main.js"></script>
+    <script src="js/dragNdrop.js"></script>
   </body>
 </html>
