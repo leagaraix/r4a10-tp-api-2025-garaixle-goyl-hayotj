@@ -1,32 +1,32 @@
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
-    <title>Recherche d'offres d'emploi</title>
+    <title>AlchiMix | Créer vos cocktails</title>
     <meta charset="utf-8" />
+    <!-- TODO : mettre une icône pour la fenêtre du navigateur -->
     <link rel="shortcut icon" type="image/x-icon" href="favicon-js.ico" />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
   </head>
 
   <body>
     <header>
-      <h1>Recherche d'offres d'emploi</h1>
+      <h1>AlchiMix</h1>
 
       <p id="explication">
-        Cette page permet de rechercher des offres d'emploi via l'API publique
-        de <a href="https://www.indeed.fr/" target="_blank">indeed.fr</a>.<br />
-        Saisir le nom d'une ville, d'un poste, ... pour rechercher les postes
-        correspondants, et enregistrer vos recherches favorites pour les
-        retrouver facilement.
+        AlchiMix vous permet de créer vos propres cocktails ! Nous utilisons l'API publique 
+        <a href="https://www.thecocktaildb.com/" target="_blank">TheCocktailDB</a>.<br />
+        Cherchez un cocktail dans notre base de données, ou créez tout de suite le vôtre.
       </p>
     </header>
-    <hr />
+    <hr/>
 
     <main id="conteneur">
+
       <!-- Section de recherche (avec résultats) -->
-      <section id="section-recherche">
-        <div id="bloc-recherche">
+      <section id="section-recherche-cocktail">
+        <div id="bloc-recherche-cocktail">
           <!-- Champ de recherche -->
-          <input type="text" placeholder="Que cherchez-vous ?" />
+          <input type="text" placeholder="Cherchez un cocktail (nom, ingrédient)" />
 
           <!-- Boutons -->
           <button
@@ -38,81 +38,23 @@
             <!-- Icone Loupe (provenant de flaticon.com) -->
             <img src="images/loupe.svg" alt="Loupe pour recherche" width="22" />
           </button>
-
-          <button
-            id="btn-favoris"
-            type="button"
-            disabled
-            title="Ajouter la recherche aux favoris"
-          >
-            <!-- Icone étoile vide
-							(qui indique que la recherche ne fait pas partie des favoris) -->
-            <img src="images/etoile-vide.svg" alt="Etoile vide" width="22" />
-
-            <!-- Icone étoile pleine
-								(qui indique que la recherche fait partie des favoris) -->
-            <!-- <img src="images/etoile-pleine.svg" alt="Etoile pleine" width="22" > -->
-
-            <!-- (Les 2 icones d'étoile provenant de flaticon.com) -->
-          </button>
-        </div>
-
-        <!-- Résultats de recherche -->
-        <div id="bloc-gif-attente">
-          <img
-            src="images/attente-ajax.gif"
-            alt="GIF Attente de résultats"
-            width="50"
-          />
-        </div>
-        <div id="bloc-resultats">
-          <p class="res">Résultat 1 ...</p>
-          <p class="res">Résultat 2 ...</p>
-          <p class="res">Résultat 3 ...</p>
-          <p class="info-vide">(Aucun résultat trouvé)</p>
         </div>
       </section>
 
-      <!-- Section de séparation (avec la bordure verte) -->
-      <section id="section-separation"></section>
+      <section id="section-creation">
 
-      <!-- Section des recherches favorites -->
-      <section id="section-favoris">
-        <h2>Recherches favorites</h2>
-        <p>
-          Cliquer sur une recherche favorite ci-dessus pour relancer celle-ci :
-        </p>
-        <ul id="liste-favoris">
-          <li>
-            <span title="Cliquer pour relancer la recherche">Grenoble</span>
-            <img
-              src="images/croix.svg"
-              alt="Icone pour supprimer le favori"
-              width="15"
-              title="Cliquer pour supprimer le favori"
-            />
-          </li>
-          <li>
-            <span title="Cliquer pour relancer la recherche">Lyon</span>
-            <img
-              src="images/croix.svg"
-              alt="Icone pour supprimer le favori"
-              width="15"
-              title="Cliquer pour supprimer le favori"
-            />
-          </li>
-          <li>
-            <span title="Cliquer pour relancer la recherhe.">Web</span>
-            <img
-              src="images/croix.svg"
-              alt="Icone pour supprimer le favori"
-              width="15"
-              title="Cliquer pour supprimer le favori"
-            />
-          </li>
-        </ul>
-        <p class="info-vide">(Aucune recherche favorite)</p>
+        <div id="bloc-verre">
+        
+
+        </div>
+
+        <div id="bloc-recherche-ingredients">
+          <input type="text" placeholder="Cherchez un ingrédient"/>
+
+        </div>
+
       </section>
+
     </main>
   </body>
 </html>
