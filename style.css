@@ -1,7 +1,7 @@
 /* *** Barre de navigation *** */
 
 nav {
-    width: 97%;
+    width: 96%;
     margin: auto;
     margin-top: 20px;
 }
@@ -10,6 +10,18 @@ nav {
     width: 50px;
 }
 
+#logo {
+    text-decoration: none;
+}
+
+a {
+    color: #DB7C26;
+    --pico-underline: #DB7C26;
+}
+a:hover {
+    color: #F7B538;
+    --pico-primary-hover-underline: #F7B538;
+}
 
 /* *** Mise en page partagée *** */
 
