@@ -6,60 +6,59 @@
     <!-- TODO : mettre une icône pour la fenêtre du navigateur -->
     <link rel="shortcut icon" type="image/x-icon" href="favicon-js.ico" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
+    <link rel="stylesheet" href="style.css">
   </head>
 
   <body>
-    <header>
-      <h2>AlchiMix</h2>
-      <img id="img-favoris" src="images/favori.png"/>
-    </header>
+    <!-- TODO : remplacer ce header par un nav (modèle p. recherche) -->
+
+    <nav>
+      <ul><h2>AlchiMix</h2></ul>
+      <ul><img id="img-favoris" src="images/favori.png"/></ul>
+    </nav>
+
     <hr/>
 
     <main id="conteneur">
 
       <section id="section-presentation">
 
-        <h1>AlchiMix</h1>
+        <hgroup>
+          <h1>AlchiMix</h1>
 
-        <p id="explication">
-          AlchiMix vous permet de créer vos propres cocktails ! Nous utilisons l'API publique 
-          <a href="https://www.thecocktaildb.com/" target="_blank">TheCocktailDB</a>.<br />
-          Cherchez un cocktail dans notre base de données, ou créez tout de suite le vôtre.
-        </p>
-
-        <div id="bloc-recherche-cocktail">
-          <!-- Champ de recherche -->
-          <input type="text" placeholder="Cherchez un cocktail (nom, ingrédient)" />
-
-          <!-- Boutons -->
-          <button
-            id="btn-lancer-recherche"
-            type="button"
-            class="btn_cliquable"
-            title="Lancer la recherche"
-          >
-            <!-- Icone Loupe (provenant de flaticon.com) -->
-            <img src="images/loupe.svg" alt="Loupe pour recherche" width="22" />
-          </button>
-        </div>
+          <p id="explication">
+            AlchiMix vous permet de créer vos propres cocktails ! Nous utilisons l'API publique 
+            <a href="https://www.thecocktaildb.com/" target="_blank">TheCocktailDB</a>.<br />
+            Cherchez un cocktail dans notre base de données, ou créez tout de suite le vôtre.
+          </p>
+        </hgroup>
+        
+        <!-- Champ de recherche -->
+        <form role="search" id="form-recherche-cocktail">
+          <input name="recherche-cocktail" type="search" placeholder="Cherchez un cocktail (nom, ingrédient)" />
+          <input type="submit" value="Chercher" />
+          <!-- TODO : essayer de mettre une loupe plutôt que "Chercher" (<img src="images/loupe.svg" alt="Loupe pour recherche" width="22" />) -->
+        </form>
 
       </section>
 
       <section id="section-creation">
 
-        <div id="bloc-verre">
+        <div id="bloc-creation">
+          <img id="img-verre" src="images/verre.png"/>
         
-          <!-- Insérer une image de verre à remplir-->
+          <form role="search" id="form-recherche-ingredients">
+            <input name="recherche-cocktail" type="search" placeholder="Cherchez un ingrédient" />
+            <input type="submit" value="Chercher" />
+            <!-- TODO : essayer de mettre une loupe plutôt que "Chercher" (<img src="images/loupe.svg" alt="Loupe pour recherche" width="22" />) -->
+          </form>
+
+          <div id="bloc-resultats-ingredients">
+            <p>Résultats</p>
+          </div>
 
         </div>
-
-        <div id="bloc-recherche-ingredients">
-          <input type="text" placeholder="Cherchez un ingrédient"/>
-
-          <!-- Insérer une grille pour les résultats-->
-
-        </div>
-
+        
         <button id="btn-valider-creation" type="button" class="btn_cliquable" title="Créer">Créer</button>
 
       </section>

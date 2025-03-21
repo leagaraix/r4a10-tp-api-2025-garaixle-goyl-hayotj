@@ -1,0 +1,33 @@
+/* *** Barre de navigation *** */
+
+nav {
+    width: 97%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#img-favoris {
+    width: 50px;
+}
+
+
+/* *** Mise en page partagée *** */
+
+main {
+    margin: 0% 5%;
+}
+
+hgroup {
+    text-align: center;
+}
+
+
+/* *** Page d'accueil *** */
+
+#section-creation {
+    border: white 2px solid;
+}
+
+#bloc-creation {
+    display: flex;
+}
