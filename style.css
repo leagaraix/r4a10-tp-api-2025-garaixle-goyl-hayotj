@@ -25,9 +25,12 @@ hgroup {
 /* *** Page d'accueil *** */
 
 #section-creation {
-    border: white 2px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #bloc-creation {
     display: flex;
+
 }
