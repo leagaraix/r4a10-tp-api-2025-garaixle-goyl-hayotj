@@ -13,12 +13,21 @@ nav {
 
 /* *** Mise en page partagée *** */
 
+html {
+    background-color: #34040D;
+}
+
 main {
     margin: 0% 5%;
 }
 
 hgroup {
     text-align: center;
+}
+
+.orange {
+    background-color: #DB7C26;
+    border: #DB7C26;
 }
 
 

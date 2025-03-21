@@ -33,8 +33,8 @@
         
         <!-- Champ de recherche -->
         <form role="search" id="form-recherche-cocktail">
-          <input id="rechercheInput" name="recherche-cocktail" type="search" placeholder="Cherchez un cocktail (nom, ingrédient)" />
-          <input id="btn-lancer-recherche" type="submit" value="Chercher" />
+          <input data-theme="light" name="recherche-cocktail" type="search" placeholder="Cherchez un cocktail (nom, ingrédient)" />
+          <input class="orange" type="submit" value="Chercher" />
           <!-- TODO : essayer de mettre une loupe plutôt que "Chercher" (<img src="images/loupe.svg" alt="Loupe pour recherche" width="22" />) -->
         </form>
 
@@ -52,8 +52,8 @@
           <div id="bloc-recherche-ingredients">
 
             <form role="search" id="form-recherche-ingredients">
-              <input name="recherche-cocktail" type="search" placeholder="Cherchez un ingrédient" />
-              <input type="submit" value="Chercher" />
+              <input data-theme="light" name="recherche-cocktail" type="search" placeholder="Cherchez un ingrédient" />
+              <input class="orange" type="submit" value="Chercher" />
               <!-- TODO : essayer de mettre une loupe plutôt que "Chercher" (<img src="images/loupe.svg" alt="Loupe pour recherche" width="22" />) -->
             </form>
 
@@ -67,12 +67,10 @@
 
         </div>
         
-        <button id="btn-valider-creation" type="button" class="btn_cliquable" title="Créer">Créer</button>
+        <button id="btn-valider-creation" type="button" class="orange" title="Créer">Créer</button>
 
       </section>
 
     </main>
-    <script type="module" src="js/main.js"></script>
   </body>
-  
 </html>
