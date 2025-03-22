@@ -66,4 +66,14 @@ view.btnFav.addEventListener("click", function(event) {
     
   }
 
+  view.btnCreate.addEventListener("click", function(event) {
+
+    view.imageCrea.src = "images/crea" + Math.floor(Math.random() * 4) + ".png"
+    view.dialogCrea.showModal();
+
+    view.btnFermerCrea.addEventListener("click", function(event) {
+      view.dialogCrea.close();
+    })
+  })
+
 });

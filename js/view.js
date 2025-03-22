@@ -23,4 +23,8 @@ export const view = {
   btnConfirmer: document.getElementById("confirmer-suppression"),
   btnAnnuler: document.getElementById("annuler-suppression"),
   
+  btnCreate: document.getElementById("btn-valider-creation"),
+  dialogCrea: document.getElementById("resultat-cocktail"),
+  imageCrea: document.getElementById("img-creation"),
+  btnFermerCrea: document.getElementById("btn-fermer-crea"),
 };

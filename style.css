@@ -131,3 +131,22 @@ input[type="search"]:focus {
 #btn-valider-creation {
     margin-top: 20px;
 }
+
+/* *** Résultat cocktail *** */
+
+#blast {
+    width: 666px;
+}
+
+#img-creation {
+    z-index: 3;
+    position: absolute;
+    top: 27%;
+    left: 39%;
+}
+
+#btn-fermer-crea {
+    position: absolute;
+    top: 20%;
+    right: 25%;
+}
