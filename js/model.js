@@ -200,7 +200,7 @@ export class Alchimix {
         let hasAllIngredients = true;
 
         //Pour chaque cocktail contenant le premier ingrédient
-        dataIngredient1['drinks'].forEach(cocktail => {
+        dataIngredient1['drinks'].forEach(async cocktail => {
           //Pour chaque ingrédient (sauf le premier)
           for(let i=1; i< count(ingredients); i++){
             //Si le cocktail a tous les ingrédients précédents
@@ -253,10 +253,6 @@ export class Alchimix {
     
 }
 
-
-
-
-}
 
 
 
