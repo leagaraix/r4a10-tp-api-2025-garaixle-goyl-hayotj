@@ -10,25 +10,17 @@ nav {
     text-decoration: none;
 }
 
-a {
-    color: #DB7C26;
-    --pico-underline: #DB7C26;
-}
-a:hover {
-    color: #F7B538;
-    --pico-primary-hover-underline: #F7B538;
-}
-
 #img-favoris {
     width: 50px;
 }
 #img-favoris:hover {
-
-    /* J'en suis là : faire une transition plus courte */
-
     transition: 0.5s;
     filter: brightness(125%);
 }
+#img-favoris:not(:hover) {
+    transition: 0.5s;
+}
+
 
 /* *** Mise en page partagée *** */
 
@@ -44,6 +36,15 @@ hgroup {
     text-align: center;
 }
 
+a {
+    color: #DB7C26;
+    --pico-underline: #DB7C26;
+}
+a:hover {
+    color: #F7B538;
+    --pico-primary-hover-underline: #F7B538;
+}
+
 #img-loupe, #img-etoile-vide, #img-etoile-pleine {
     height: 20px;
 }
@@ -57,6 +58,35 @@ hgroup {
     background-color: #CA5D36;
     border: #CA5D36;
 }
+
+/* Barre de recherche */
+
+#btn-lancer-recherche:hover, #btn-recherche-ingredients:hover, #btn-ajouter-favori:hover {
+    transition: 0.5s;
+    filter: brightness(125%);
+}
+#btn-lancer-recherche:not(:hover), #btn-recherche-ingredients:not(:hover), #btn-ajouter-favori:not(:hover) {
+    transition: 0.5s;
+}
+
+/* TENTATIVES D'ENLEVER LA BORDURE BLEUE QUAND SELECTION DE RECHERCHE = ECHEC
+input[type="search"]:focus {
+    border: solid 2px #F7B538;
+}
+#div-recherche-ingredients:focus {
+    --pico-primary-border: #F7B538;
+    --pico-primary-focus: #F7B538;
+    --pico-form-element-focus-color: #F7B538;
+    border: solid 2px #F7B538;
+}
+#div-recherche-cocktail {
+    --pico-primary-border: #F7B538;
+    --pico-primary-focus: #F7B538;
+    --pico-form-element-focus-color: #F7B538;
+    border: solid 2px #F7B538;
+}
+*/
+
 
 
 /* *** Page d'accueil *** */

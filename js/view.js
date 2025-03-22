@@ -11,4 +11,8 @@ export const view = {
 
   // Bouton de recherche
   rechercheButton: document.getElementById("btn-lancer-recherche"),
+
+  // Bouton favoris (recherche)
+  // favorisButton: document.getElementById("btn-ajouter-favori"),
+  
 };

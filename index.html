@@ -33,7 +33,7 @@
         <div role="search" id="div-recherche-cocktail">
           <input id="rechercheInput" name="recherche-cocktail" type="search" placeholder="Cherchez un cocktail (nom, ingrédient)" data-theme="light"/>
           <button id="btn-lancer-recherche" class="orange" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
-          <button id="btn-ajouter-favori" class="rouge" type="submit" value="Chercher"><img id="img-etoile-vide" src="images/etoile-vide.svg" alt="Etoile de favori vide" /></button>
+          <button id="btn-ajouter-favori" class="rouge" type="submit" value="Chercher" disabled><img id="img-etoile-vide" src="images/etoile-vide.svg" alt="Etoile de favori vide" /></button>
         </div>
 
       </section>
@@ -73,7 +73,7 @@
             <div role="search" id="div-recherche-ingredients">
               <input name="recherche-ingredients" type="search" placeholder="Cherchez un ingrédient" data-theme="light"/>
               <button id="btn-recherche-ingredients" class="orange" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
-              <button id="btn-ajouter-favori" class="rouge" type="submit" value="Chercher"><img id="img-etoile-vide" src="images/etoile-vide.svg" alt="Etoile de favori vide" /></button>
+              <button id="btn-ajouter-favori" class="rouge" type="submit" value="Chercher" disabled><img id="img-etoile-vide" src="images/etoile-vide.svg" alt="Etoile de favori vide" /></button>
             </div>
 
             <!-- TODO :  Insérer une grille contenant les résultats de la recherche -->
@@ -117,6 +117,7 @@
 
     </main>
     <script type="module" src="js/main.js"></script>
+    <script src="js/recherches-favorites.js"></script>
     <script src="js/dragNdrop.js"></script>
   </body>
 </html>
