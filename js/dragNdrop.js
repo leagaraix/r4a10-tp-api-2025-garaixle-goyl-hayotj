@@ -1,5 +1,12 @@
 let currentDroppable = null;
-let isDragging = false;
+let listIngredient = []
+const buttonCreate = document.getElementById("btn-valider-creation");
+
+buttonCreate.addEventListener("click", (event) => {
+  // Insérer vérification que le cocktail existe ou non
+  // Insérer cas ou le cocktail existe
+  
+});
 
 document.addEventListener('mousedown', function(event) {
 
@@ -7,6 +14,7 @@ document.addEventListener('mousedown', function(event) {
 
     dragElement.onmousedown = function(event) {
 
+      // On corrige la distance entre le pointeur de la souris et le centre de l'ingrédient
       let shiftX = event.clientX - dragElement.getBoundingClientRect().left;
       let shiftY = event.clientY - dragElement.getBoundingClientRect().top;
 
@@ -32,12 +40,11 @@ document.addEventListener('mousedown', function(event) {
 
         let droppableBelow = elemBelow.closest('.droppable');
         if (currentDroppable != droppableBelow) {
-          if (currentDroppable) { // null lorsque nous étions sur un élément déposable avant cet évènement
+          if (currentDroppable) {
             leaveDroppable(currentDroppable);
           }
           currentDroppable = droppableBelow;
-          if (currentDroppable) { // null si nous ne n'atterrissions pas sur un élément déposable maintenant
-            // (peut être a juste quitte l'objet déposable)
+          if (currentDroppable) {
             enterDroppable(currentDroppable);
           }
         }
@@ -52,12 +59,22 @@ document.addEventListener('mousedown', function(event) {
 
     };
 
+    // Quand un ingrédient est glissé dans la zone du verre
     function enterDroppable(elem) {
+        // On change la couleur du fond
         elem.style.background = '#CA5D36';
+        // Si l'ingrédient n'est pas déjà présenrt dans la liste on l'y ajoute
+        if(!listIngredient.includes(dragElement.id)) {
+          listIngredient.push(dragElement.id);
+        }
     }
 
+    // Quand un ingrédient est glissé hors de la zone du verre
     function leaveDroppable(elem) {
-      elem.style.background = '';
+      // On enlève la couleur du fond
+      elem.style.background = ''
+      // On retire l'ingrédient de la liste
+      listIngredient = listIngredient.filter((ing) => ing !== dragElement.id)
     }
 
     dragElement.ondragstart = function() {
