@@ -15,7 +15,7 @@ nav {
 }
 #img-favoris:hover {
     transition: 0.5s;
-    filter: brightness(125%);
+    filter: brightness(145%);
 }
 #img-favoris:not(:hover) {
     transition: 0.5s;
@@ -45,7 +45,15 @@ a:hover {
     --pico-primary-hover-underline: #F7B538;
 }
 
-#img-loupe, #img-etoile-vide, #img-etoile-pleine {
+button:hover {
+    transition: 0.5s;
+    filter: brightness(125%);
+}
+button:not(:hover) {
+    transition: 0.5s;
+}
+
+#img-loupe, #img-etoile {
     height: 20px;
 }
 
@@ -60,15 +68,6 @@ a:hover {
 }
 
 /* Barre de recherche */
-
-#btn-lancer-recherche:hover, #btn-recherche-ingredients:hover, #btn-ajouter-favori:hover {
-    transition: 0.5s;
-    filter: brightness(125%);
-}
-#btn-lancer-recherche:not(:hover), #btn-recherche-ingredients:not(:hover), #btn-ajouter-favori:not(:hover) {
-    transition: 0.5s;
-}
-
 /* TENTATIVES D'ENLEVER LA BORDURE BLEUE QUAND SELECTION DE RECHERCHE = ECHEC
 input[type="search"]:focus {
     border: solid 2px #F7B538;
@@ -87,6 +86,29 @@ input[type="search"]:focus {
 }
 */
 
+/* Boîte de dialogue */
+#confirmation>div {
+    display: flex;
+    flex-direction: column;
+}
+#confirmation>div>div {
+    display: flex;
+    justify-content: center;
+    align-items: stretch; /* Évite d'écraser le hover */
+    gap: 20px;
+}
+
+#confirmer-suppression {
+    background-color: red;
+    border: solid 2px red;
+}
+#annuler-suppression {
+    background-color: #CA5D36;
+    border: solid 2px #CA5D36;
+}
+#confirmer-suppression:hover, #annuler-suppression:hover {
+    border: solid 2px #F7B538;
+}
 
 
 /* *** Page d'accueil *** */
