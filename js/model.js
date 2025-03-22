@@ -29,11 +29,11 @@ export class Alchimix {
    */
   _favorisRechercheIngredient;
 
-  //Méthodes
+  // Méthodes
 
   /**
-  * Constructeur de la classe Alchimix
-  */
+   * Constructeur de la classe Alchimix
+   */
   constructor() {
     this._input = "";
     this._favoris = Array();
@@ -41,12 +41,11 @@ export class Alchimix {
     this._favorisRechercheIngredient = Array();
   }
 
-  /***
+  /**
    * Rechercher un cocktail par nom
    * @param {string} name
    * @returns {Array}
    */
-
   async searchByName(name) {  
     
       //On effectue l'appel AJAX avec await fetch car sinon le main n'obtient pas la réponse
@@ -63,26 +62,36 @@ export class Alchimix {
   }
 
 
+  /* GESTION DES RECHERCHES FAVORITES */
+
   /**
    * Ajoute une recherche de cocktail aux favoris
    */
   addRechercheCocktail(recherche) {
-    this._favorisRechercheCocktail.push(recherche);
+    if(this._favorisRechercheCocktail.indexOf(recherche) === -1) {
+      this._favorisRechercheCocktail.push(recherche);
+      this.saveStateToClient();
+    }
   }
 
   /**
    * Ajoute une recherche d'ingrédient aux favoris
    */
   addRechercheIngredient(recherche) {
-    this._favorisRechercheIngredient.push(recherche);
+    if(this._favorisRechercheCocktail.indexOf(recherche) === -1) {
+      this._favorisRechercheIngredient.push(recherche);
+      this.saveStateToClient();
+    }
   }
 
   /**
    * Supprime une recherche de cocktail des favoris
    */
   deleteRechercheCocktail(recherche) {
+    console.log("On accède à deleteRechercheCocktail().");
     let position = this._favorisRechercheCocktail.indexOf(recherche);
     this._favorisRechercheCocktail.splice(position, 1);
+    this.saveStateToClient();
   }
 
   /**
@@ -91,8 +100,17 @@ export class Alchimix {
   deleteRechercheIngredient(recherche) {
     let position = this._favorisRechercheIngredient.indexOf(recherche);
     this._favorisRechercheIngredient.splice(position, 1);
+    this.saveStateToClient();
   }
 
+  /**
+   * Vérifie si la recherche se trouve dans la liste des recherches favorites
+   */
+  checkFav(recherche) {
+    return (this._favorisRechercheCocktail.indexOf(recherche) !== -1);
+  }
+
+  /* GESTION DU LOCAL STORAGE */
 
   saveStateToClient() {
 
@@ -127,7 +145,6 @@ export class Alchimix {
     }
 
   }
-
 
 }
 
