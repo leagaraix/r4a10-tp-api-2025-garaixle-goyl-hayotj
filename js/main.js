@@ -13,6 +13,7 @@ view.rechercheButton.addEventListener("click", (evt) => {
   console.log(view.rechercheInput.value);
   // Lance la recherche
   console.log(alchimix.searchByName(view.rechercheInput.value));
+    console.log(alchimix.searchByIngredient(view.rechercheInput.value));
   // (La vue n'a pas besoin d'être mis à jour ici)
 });
 
