@@ -13,6 +13,13 @@ alchimix.retrieveStateFromClient();
 
 new RecherchesFavorites(viewIndex);
 
+// ###Redirection vers la recherche
+viewIndex.rechercheButton.addEventListener("click", function(event) {
+  alchimix.setInput(viewIndex.rechercheInput.value);
+  alchimix.saveStateToClient();
+  window.location = "./recherche.html";
+})
+
 // ### Création de cocktails
 
 viewIndex.btnCreate.addEventListener("click", async function(event) {

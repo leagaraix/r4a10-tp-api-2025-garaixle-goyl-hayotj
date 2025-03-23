@@ -35,6 +35,14 @@ class Alchimix {
     this._favorisRechercheCocktail = Array();
   }
 
+
+  setInput(input){
+    this._input = encodeURIComponent(input);
+  }
+
+  getInput(){
+    return this._input;
+  }
   /* GESTION DES RECHERCHES FAVORITES */
 
   /**
@@ -81,6 +89,12 @@ class Alchimix {
     } else {
       localStorage.setItem("rechercheCocktail", "");
     }
+
+    if(this._input !==null){
+      localStorage.setItem("input", JSON.stringify(this._input));
+    }else {
+      localStorage.setItem("input", "");
+    }
    
   }
 
@@ -94,6 +108,13 @@ class Alchimix {
       this._favorisRechercheCocktail = JSON.parse(chaineRechercheCocktail);
     }
 
+    //Récupérer l'input de recherche
+    let input = localStorage.getItem("input");
+    if (input === null || input === "" || input == []) {
+      localStorage.setItem("input", "");
+    } else {
+      this._input = JSON.parse(input);
+    }
   }
 
   //Méthodes de recherches
