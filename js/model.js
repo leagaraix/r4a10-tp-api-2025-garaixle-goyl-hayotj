@@ -111,7 +111,7 @@ export class Alchimix {
 
       //On envoie le résultat au model
       if (!response.ok){
-        consolelog(error);      
+        console.log(error);      
       }else{
         return await response.json();
       }
@@ -128,11 +128,10 @@ export class Alchimix {
     
     //On effectue l'appel AJAX avec await fetch car sinon le main n'obtient pas la réponse
     let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + encodeURIComponent(ingredient));
-    console.log(response);
     
     //On envoie le résultat au model
     if (!response.ok){
-      consolelog(error);      
+      console.log(error);      
     }else{
       return await response.json();
     }
@@ -154,7 +153,7 @@ export class Alchimix {
     let responseIngredient1 = await fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + encodeURIComponent(ingredients[0]));
     //on gère les erreurs s'il y en a
     if (!responseIngredient1.ok){
-      consolelog(error);      
+      console.log(error);      
     }else{
     //sinon on traite la réponse
       let dataIngredient1= await responseIngredient1.json();
@@ -178,7 +177,7 @@ export class Alchimix {
               //on vérifie qu'il a cet ingrédient
               let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + encodeURIComponent(ingredients[i]));
               if (!response.ok){
-                consolelog(error);      
+                console.log(error);      
               }else{
                 let data = await response.json();
 
@@ -194,7 +193,7 @@ export class Alchimix {
             //On vérifie qu'il n'a pas d'ingrédient en plus
             let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + encodeURIComponent(ingredients[i]));
             if (!response.ok){
-              consolelog(error);      
+              console.log(error);      
             }else{
               let data = await response.json();
               

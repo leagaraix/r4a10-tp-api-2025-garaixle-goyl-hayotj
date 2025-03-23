@@ -30,8 +30,6 @@ export const viewIndex = {
   dialogCrea: document.getElementById("resultat-cocktail"),
   imageCrea: document.getElementById("img-creation"),
   btnFermerCrea: document.getElementById("btn-fermer-crea"),
-
-  test : document.getElementById("sdqsjdhqsjhdqsjhds"),
 };
 
 /**
@@ -44,7 +42,7 @@ export const viewRecherche = {
     // Bouton de recherche
     rechercheButton: document.getElementById("btn-lancer-recherche"),
   
-    resultatContainer : document.getElementById()
+    resultatContainer : document.getElementById("grid-cocktails"),
 
 };
 
