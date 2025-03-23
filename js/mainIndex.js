@@ -13,15 +13,24 @@ alchimix.retrieveStateFromClient();
 
 new RecherchesFavorites(viewIndex);
 
+// ###Redirection vers la recherche
+viewIndex.rechercheButton.addEventListener("click", function(event) {
+  alchimix.setInput(viewIndex.rechercheInput.value);
+  alchimix.saveStateToClient();
+  window.location = "./recherche.html";
+})
+
 // ### Création de cocktails
 
 let prefixCocktails = ["Dynamo", "Tonic", "Ti'", "Royal"];
 
-viewIndex.btnCreate.addEventListener("click", function(event) {
+viewIndex.btnCreate.addEventListener("click", async function(event) {
 
   if (listIngredient.length != 0) {
-    if (false) { // insérer condition cocktail existant
-      // insérer image cocktail existant
+    const cocktailExist = await alchimix.searchByIngredientsList(["lemon", "lemon"]);
+    console.log(cocktailExist);
+    if ( cocktailExist != null) { // insérer condition cocktail existant
+      viewIndex.imageCrea.src = dataCocktail.drinkThumb;
     } else {
       viewIndex.imageCrea.src = "images/crea" + Math.floor(Math.random() * 4) + ".png"
       viewIndex.nomCrea.textContent = prefixCocktails[Math.floor(Math.random() * 4)] + " " + listIngredient[Math.floor(Math.random() * (listIngredient.length-1))]
