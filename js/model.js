@@ -39,7 +39,7 @@ class Alchimix {
   setInput(input){
 
       this._input = encodeURIComponent(input);
-    
+      this.saveStateToClient(); 
   }
 
   getInput(){

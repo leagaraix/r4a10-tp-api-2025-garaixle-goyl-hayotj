@@ -131,6 +131,10 @@ export class RecherchesFavorites {
       let id = liId.slice(-1);
       let tableauRecherchesFav = this.alchimix.getFavorisRechercheCocktail();
       this.view.rechercheInput.value = tableauRecherchesFav[id];
+
+      //Lancement de la recherche
+      alchimix.setInput(tableauRecherchesFav[id]);
+      window.location = "./recherche.html";
     }
 
 }
