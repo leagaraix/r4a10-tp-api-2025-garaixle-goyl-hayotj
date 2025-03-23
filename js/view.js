@@ -65,16 +65,18 @@ export const viewRecherche = {
   confirmation: document.getElementById("confirmation"),
   btnConfirmer: document.getElementById("confirmer-suppression"),
   btnAnnuler: document.getElementById("annuler-suppression"),
+
+  // Test de récupération des détails d'un cocktail
+  btnTestMargarita: document.getElementById("btn-test-margarita"),
+  pageCocktail: document.getElementById("page-cocktail"),
+  nomCocktail: document.getElementById("nom-cocktail"),
+  alcoholicGlassCocktail: document.getElementById("alcoholic-glass-cocktail"),
+  imgCocktail: document.getElementById("img-cocktail"),
+  listeIngredients: document.getElementById("liste-ingredients-cocktail"),
+  recetteCocktail: document.getElementById("recette-cocktail"),
+  btnFermerRecette: document.getElementById("btn-fermer-recette"),
   
-    // ! J'ai commenté cette ligne parce qu'elle provoquait une erreur
-    resultatContainer : document.getElementById("grid-cocktails"),
-
-};
-
-/**
- * Objet constant représentant la vue des favoris
- */
-export const viewFavoris = {
-
+  // ! J'ai commenté cette ligne parce qu'elle provoquait une erreur
+  resultatContainer : document.getElementById("grid-cocktails"),
 
 };

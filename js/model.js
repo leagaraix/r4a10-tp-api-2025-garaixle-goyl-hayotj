@@ -37,7 +37,9 @@ class Alchimix {
 
 
   setInput(input){
-    this._input = encodeURIComponent(input);
+
+      this._input = encodeURIComponent(input);
+      this.saveStateToClient(); 
   }
 
   getInput(){
@@ -90,7 +92,7 @@ class Alchimix {
       localStorage.setItem("rechercheCocktail", "");
     }
 
-    if(this._input !==null){
+    if(this._input !=null){
       localStorage.setItem("input", JSON.stringify(this._input));
     }else {
       localStorage.setItem("input", "");
@@ -179,12 +181,14 @@ class Alchimix {
 
 
   /***
-   * Rechercher si un coctail existe ou non par une liste d'ingrédients, si oui on le renvoie, sinon, on renvoie null
+   * Rechercher si un cocktail existe ou non par une liste d'ingrédients, si oui on le renvoie, sinon, on renvoie null
    * @param {Array} ingredients
    * @returns {?Object}
    */
 
   async searchByIngredientsList(ingredients) { 
+    // ### Trop de requêtes pour cette fonctionnalité
+    // on aurait pu optimiser mais le temps imparti étant trop juste on a laissé ainsi
     
     let exist = true; //On part du principe que le cocktail existe
 
@@ -264,8 +268,40 @@ class Alchimix {
     
   }
     
+  /**
+   * Récupèrer les détails d'un cocktail à partir de son ID
+   * @param {*} id 
+   */
+  async getCocktail(idCocktail) {
 
-    
+    let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + idCocktail);
+
+    if (!response.ok) {
+      console.log(error);
+    } else {
+
+      let detailsCocktail = await response.json();
+      console.log("Détails :")
+      console.log(detailsCocktail);
+
+      let plusMieux = detailsCocktail['drinks'][0];
+      console.log("Plus mieux :")
+      console.log(plusMieux);
+
+      let id = plusMieux['idDrink'];
+      console.log("id :")
+      console.log(id);
+
+
+      // Renvoyer le tableau avec les détails
+
+      return plusMieux;
+
+    }
+
+
+  }
+
 }
 
 export const alchimix = new Alchimix();

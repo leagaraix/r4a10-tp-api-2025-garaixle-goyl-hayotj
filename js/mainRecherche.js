@@ -16,18 +16,20 @@ new RecherchesFavorites(viewRecherche);
 viewRecherche.rechercheInput.value = alchimix.getInput();
 
 
+
 // ### Recherche #
 // - Gestion de la saisie au clavier
 viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
     // Lance la recherche
     alchimix.setInput(rechercheInput.value);
-    alchimix.saveStateToClient();
+    
     const dataByName = await alchimix.searchByName(viewRecherche.rechercheInput.value);
+    console.log(dataByName);
 
     const dataByIngredient = await alchimix.searchByIngredient(viewRecherche.rechercheInput.value);
 
     //On met à jour la vue
-    if(dataByName.drinks == null && dataByIngredient.drinks == "no data found"){
+    if((dataByName.drinks == null && dataByIngredient.drinks == "no data found")  || (dataByName.drinks == "no data found" && dataByIngredient.drinks == "no data found") || (dataByName == undefined && dataByIngredient.drinks == undefined)){
         viewRecherche.resultatContainer.innerHTML = "<div><p>Aucun cocktail n'a été trouvé</p></div>"
     }else{
         //On remet le champ vide
@@ -48,8 +50,53 @@ viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
             
     }
     
-  });
-  //Recherche suite au chargement de la page
-  if(viewRecherche.rechercheInput != ""){
-  viewRecherche.rechercheButton.click();
-  }
+});
+
+//Recherche suite au chargement de la page
+if(viewRecherche.rechercheInput != ""){
+    viewRecherche.rechercheButton.click();
+}
+
+// ### Affichage des détails d'un cocktail
+
+viewRecherche.btnTestMargarita.addEventListener("click", async (evt) => {
+
+    // ! Pour les tests 
+    let idCocktail = 11007;
+
+    const detailsCocktails = await alchimix.getCocktail(idCocktail);
+
+    let id = detailsCocktails['idDrink'];
+
+    // Eviter la duplication des <li> quand on réouvre le dialogue
+    viewRecherche.listeIngredients.innerHTML = "";
+
+    viewRecherche.pageCocktail.showModal();
+
+    viewRecherche.nomCocktail.innerText = detailsCocktails['strDrink'];
+    viewRecherche.alcoholicGlassCocktail.innerText = detailsCocktails['strAlcoholic'] + " ; " + detailsCocktails['strGlass'];
+    viewRecherche.imgCocktail.setAttribute("src", detailsCocktails['strDrinkThumb']);
+    
+    // Récupérer les ingrédients et leurs mesures
+    let i = 1;
+    while (detailsCocktails['strIngredient' + i.toString()] !== null) {
+        let li = document.createElement("li");
+        li.textContent = (detailsCocktails['strMeasure' + i.toString()] != null ? detailsCocktails['strMeasure' + i.toString()] : "") + " " + detailsCocktails['strIngredient' + i.toString()];
+        viewRecherche.listeIngredients.appendChild(li);
+        i++;
+    }
+
+    // Afficher les instructions (en français de préférence, anglais sinon)
+    if (detailsCocktails['strInstructionsFR'] != null) {
+        viewRecherche.recetteCocktail.innerText = detailsCocktails['strInstructionsFR'];
+    } else {
+        viewRecherche.recetteCocktail.innerText = detailsCocktails['strInstructions'];
+    }
+
+    viewRecherche.btnFermerRecette.addEventListener("click", function(event) {
+        viewRecherche.pageCocktail.close();
+    })
+
+})
+
+
