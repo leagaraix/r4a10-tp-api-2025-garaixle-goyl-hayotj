@@ -10,15 +10,6 @@ nav {
     text-decoration: none;
 }
 
-#img-favoris {
-    width: 50px;
-    transition: 0.5s;
-}
-#img-favoris:hover {
-    transition: 0.5s;
-    filter: brightness(145%);
-}
-
 
 /* *** Mise en page partagée *** */
 

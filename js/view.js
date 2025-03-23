@@ -71,11 +71,3 @@ export const viewRecherche = {
     resultatContainer : document.getElementById("grid-cocktails"),
 
 };
-
-/**
- * Objet constant représentant la vue des favoris
- */
-export const viewFavoris = {
-
-
-};
