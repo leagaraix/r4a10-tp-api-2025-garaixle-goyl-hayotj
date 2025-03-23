@@ -34,6 +34,10 @@ hgroup {
     text-align: center;
 }
 
+p {
+    color: white;
+}
+
 a {
     color: #DB7C26;
     --pico-underline: #DB7C26;
@@ -67,6 +71,10 @@ button:not(:hover) {
 
 /* Barre de recherche et liste de recherches favorites */
 
+#btn-favori-recherche:disabled {
+    background-color: gray;
+}
+
 #aucun-favoris {
     font-size: medium;
     font-style: italic;
@@ -77,6 +85,7 @@ button:not(:hover) {
     display: flex;
     gap: 20px;
     padding: 0px;
+    font-size: medium;
 }
 
 .recherche-favorite {
@@ -199,4 +208,18 @@ input[type="search"]:focus {
     left: 50%;
     transform: translate(-50%, -5%);
     text-align:center;
+}
+
+#grid-cocktails{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+#grid-cocktails div{
+    margin : 20px;
+}
+
+#grid-cocktails p{
+    text-wrap: wrap;
+    max-width: 200px;
 }
