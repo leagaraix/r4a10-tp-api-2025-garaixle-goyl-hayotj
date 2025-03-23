@@ -1,6 +1,6 @@
 // Import des modules nécessaires
 import { alchimix } from './model.js';
-import { viewIndex } from './view.js';
+import { viewIndex, viewRecherche } from './view.js';
 import { RecherchesFavorites } from './rechercheFavorites.js';
 
 //Déclaration des éléments du model
@@ -25,7 +25,7 @@ viewIndex.rechercheButton.addEventListener("click", function(event) {
 viewIndex.btnCreate.addEventListener("click", async function(event) {
 
   if (listIngredient.length != 0) {
-    const cocktailExist = await alchimix.searchByIngredientsList(["lemon", "lemon"]);
+    const cocktailExist = await alchimix.searchByIngredientsList(listIngredient);
     console.log(cocktailExist);
     if ( cocktailExist != null) { // insérer condition cocktail existant
       viewIndex.imageCrea.src = dataCocktail.drinkThumb;
@@ -40,7 +40,24 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
   }
 });
 
+//#### Recherche d'ingrédients
+viewIndex.rechercheIngredientButton.addEventListener("click", async function(){
+  const resultIngredient = await alchimix.searchInngredientByName(viewIndex.rechercheIngredientInput.value);
+    //On met à jour la vue
 
+  if(resultIngredient == null){
+    viewIndex.resultatIngredients.innerHTML = "<div><p>Aucun ingrédient n'a été trouvé</p></div>"
+}else{
+    //On remet le champ vide
+    viewIndex.resultatIngredients.innerHTML = "";
+    if(resultIngredient.ingredients !=null ){
+        //On ajoute une div pour chaque résultat par nom
+        for(let i=0; i < resultIngredient.ingredients.length; i++){
+            viewIndex.resultatIngredients.innerHTML += "<div>" + resultIngredient.ingredients[i].strIngredient+ "</div>"
+        }
+    }
+  }
+});
 // ### Partie DragNDrop
 let currentDroppable = null;
 
