@@ -34,10 +34,36 @@
           </div>
         </container>
       </div>
-    </main>
-    <footer>
 
-    </footer>
+      <button id="btn-test-margarita">Chercher la margarita</button>
+
+    </main>
+
+    <!-- Confirmation de suppression d'une recherche favorite -->
+    <dialog id="confirmation">
+      <div>
+        <p>Êtes-vous sûr de vouloir supprimer cette recherche de vos favoris ?</p>
+        <div>
+          <button id="confirmer-suppression">Oui</button>
+          <button autofocus id="annuler-suppression">Non</button>
+        </div>
+      </div>
+    </dialog>
+    
+    <!-- Affichage des détails d'un cocktail -->
+    <dialog id="page-cocktail">
+      <div id="cadre-cocktail">
+        <img id="img-cocktail" src="" alt=""> <!-- Image du cocktail -->
+        <div>
+          <p id="nom-cocktail"></p>
+          <p id="alcoholic-glass-cocktail"></p>
+          <p>Ingrédients :</p>
+          <ul id="liste-ingredients-cocktail"></ul>
+          <p id="recette-cocktail"></p>
+        </div>
+      </div>
+      <button autofocus id="btn-fermer-recette">x</button>
+    </dialog>
 
     <script type="module" src="js/mainRecherche.js"></script>
 
