@@ -29,6 +29,8 @@ export const viewIndex = {
   btnCreate: document.getElementById("btn-valider-creation"),
   dialogCrea: document.getElementById("resultat-cocktail"),
   imageCrea: document.getElementById("img-creation"),
+  nomCrea: document.getElementById("nom-crea"),
+  paraCrea: document.getElementById("p-ingredients"),
   btnFermerCrea: document.getElementById("btn-fermer-crea"),
 
   test : document.getElementById("sdqsjdhqsjhdqsjhds"),
