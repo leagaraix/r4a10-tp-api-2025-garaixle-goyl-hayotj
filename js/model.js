@@ -23,11 +23,6 @@ export class Alchimix {
    */
   _favorisRechercheCocktail;
 
-  /**
-   * Recherches favorites d'ingrédients
-   * @type {Array}
-   */
-  _favorisRechercheIngredient;
 
   // Méthodes
 
@@ -38,10 +33,16 @@ export class Alchimix {
     this._input = "";
     this._favoris = Array();
     this._favorisRechercheCocktail = Array();
-    this._favorisRechercheIngredient = Array();
   }
 
   /* GESTION DES RECHERCHES FAVORITES */
+
+  /**
+   * Renvoie le tableau des recherches favorites
+   */
+  getFavorisRechercheCocktail() {
+    return this._favorisRechercheCocktail;
+  }
 
   /**
    * Ajoute une recherche de cocktail aux favoris
@@ -54,31 +55,12 @@ export class Alchimix {
   }
 
   /**
-   * Ajoute une recherche d'ingrédient aux favoris
-   */
-  addRechercheIngredient(recherche) {
-    if(this._favorisRechercheCocktail.indexOf(recherche) === -1) {
-      this._favorisRechercheIngredient.push(recherche);
-      this.saveStateToClient();
-    }
-  }
-
-  /**
    * Supprime une recherche de cocktail des favoris
    */
   deleteRechercheCocktail(recherche) {
     console.log("On accède à deleteRechercheCocktail().");
     let position = this._favorisRechercheCocktail.indexOf(recherche);
     this._favorisRechercheCocktail.splice(position, 1);
-    this.saveStateToClient();
-  }
-
-  /**
-   * Supprime une recherche d'ingrédient des favoris
-   */
-  deleteRechercheIngredient(recherche) {
-    let position = this._favorisRechercheIngredient.indexOf(recherche);
-    this._favorisRechercheIngredient.splice(position, 1);
     this.saveStateToClient();
   }
 
@@ -99,13 +81,6 @@ export class Alchimix {
     } else {
       localStorage.setItem("rechercheCocktail", "");
     }
-
-    // Enregistrer les recherches d'ingrédient favorites 
-    if(this._favorisRechercheIngredient !== null) {
-      localStorage.setItem("rechercheIngredient", JSON.stringify(this._favorisRechercheIngredient));
-    } else {
-      localStorage.setItem("rechercheIngredient", "");
-    }
    
   }
 
@@ -113,14 +88,10 @@ export class Alchimix {
 
     // Récupérer les recherches de cocktail favorites 
     let chaineRechercheCocktail = localStorage.getItem("rechercheCocktail");
-    if (chaineRechercheCocktail !== null) {
+    if (chaineRechercheCocktail === null || chaineRechercheCocktail === "" || chaineRechercheCocktail == []) {
+      localStorage.setItem("rechercheCocktail", "");
+    } else {
       this._favorisRechercheCocktail = JSON.parse(chaineRechercheCocktail);
-    }
-
-    // Récupérer les recherches d'ingrédients favorites 
-    let chaineRechercheIngredient = localStorage.getItem("rechercheIngredient");
-    if (chaineRechercheIngredient !== null) {
-      this._favorisRechercheIngredient = JSON.parse(chaineRechercheIngredient);
     }
 
   }

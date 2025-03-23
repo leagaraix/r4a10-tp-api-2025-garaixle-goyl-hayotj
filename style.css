@@ -12,13 +12,11 @@ nav {
 
 #img-favoris {
     width: 50px;
+    transition: 0.5s;
 }
 #img-favoris:hover {
     transition: 0.5s;
     filter: brightness(145%);
-}
-#img-favoris:not(:hover) {
-    transition: 0.5s;
 }
 
 
@@ -67,7 +65,45 @@ button:not(:hover) {
     border: #CA5D36;
 }
 
-/* Barre de recherche */
+/* Barre de recherche et liste de recherches favorites */
+
+#aucun-favoris {
+    font-size: medium;
+    font-style: italic;
+    text-align: center;
+}
+
+#bloc-recherches-favorites {
+    display: flex;
+    gap: 20px;
+    padding: 0px;
+}
+
+.recherche-favorite {
+    display: flex;
+    align-items: center;
+    background-color: #DB7C26;
+    border-radius: 50px;
+    padding: 5px 15px;
+    text-decoration: underline;
+    color: white;
+    transition: 0.5s;
+}
+.recherche-favorite:hover {
+    cursor:pointer;
+    text-decoration: none;
+    transition: 0.5s;
+    filter: brightness(125%);
+}
+
+.img-croix {
+    height: 25px;
+    margin-left: 10px;
+}
+.img-croix:hover {
+    filter: brightness(0) saturate(100%) invert(6%) sepia(39%) saturate(3775%) hue-rotate(327deg) brightness(105%) contrast(106%);
+}
+
 /* TENTATIVES D'ENLEVER LA BORDURE BLEUE QUAND SELECTION DE RECHERCHE = ECHEC
 input[type="search"]:focus {
     border: solid 2px #F7B538;
