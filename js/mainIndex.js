@@ -15,11 +15,13 @@ new RecherchesFavorites(viewIndex);
 
 // ### Création de cocktails
 
-viewIndex.btnCreate.addEventListener("click", function(event) {
+viewIndex.btnCreate.addEventListener("click", async function(event) {
 
   if (listIngredient.length != 0) {
-    if (false) { // insérer condition cocktail existant
-      // insérer image cocktail existant
+    const cocktailExist = await alchimix.searchByIngredientsList(["lemon", "lemon"]);
+    console.log(cocktailExist);
+    if ( cocktailExist != null) { // insérer condition cocktail existant
+      viewIndex.imageCrea.src = dataCocktail.drinkThumb;
     } else {
       viewIndex.imageCrea.src = "images/crea" + Math.floor(Math.random() * 4) + ".png"
     }
