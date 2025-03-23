@@ -16,6 +16,7 @@ new RecherchesFavorites(viewRecherche);
 viewRecherche.rechercheInput.value = alchimix.getInput();
 
 
+
 // ### Recherche #
 // - Gestion de la saisie au clavier
 viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
@@ -23,11 +24,12 @@ viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
     alchimix.setInput(rechercheInput.value);
     alchimix.saveStateToClient();
     const dataByName = await alchimix.searchByName(viewRecherche.rechercheInput.value);
+    console.log(dataByName);
 
     const dataByIngredient = await alchimix.searchByIngredient(viewRecherche.rechercheInput.value);
 
     //On met à jour la vue
-    if(dataByName.drinks == null && dataByIngredient.drinks == "no data found"){
+    if((dataByName.drinks == null && dataByIngredient.drinks == null)  || (dataByName.drinks == "no data found" && dataByIngredient.drinks == "no data found") || (dataByName == undefined && dataByIngredient.drinks == undefined)){
         viewRecherche.resultatContainer.innerHTML = "<div><p>Aucun cocktail n'a été trouvé</p></div>"
     }else{
         //On remet le champ vide

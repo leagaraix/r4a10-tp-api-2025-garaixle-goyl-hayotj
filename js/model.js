@@ -37,7 +37,9 @@ class Alchimix {
 
 
   setInput(input){
-    this._input = encodeURIComponent(input);
+
+      this._input = encodeURIComponent(input);
+    
   }
 
   getInput(){
@@ -90,7 +92,7 @@ class Alchimix {
       localStorage.setItem("rechercheCocktail", "");
     }
 
-    if(this._input !==null){
+    if(this._input !=null){
       localStorage.setItem("input", JSON.stringify(this._input));
     }else {
       localStorage.setItem("input", "");
