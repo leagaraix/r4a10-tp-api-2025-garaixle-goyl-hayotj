@@ -180,20 +180,34 @@ input[type="search"]:focus {
 /* *** Résultat cocktail *** */
 
 #blast {
-    width: 666px;
+    position: absolute;
+    top: 30%; 
+    left: 50%;
+    transform: translate(-50%, -30%);
 }
 
 #img-creation {
     z-index: 3;
     position: absolute;
-    top: 27%;
-    left: 39%;
+    width: 250px;
+    top: 40%; 
+    left: 50%;
+    transform: translate(-50%, -40%);
 }
 
 #btn-fermer-crea {
     position: absolute;
-    top: 20%;
+    top: 15%; 
     right: 25%;
+    transform: translate(-25%, -15%);
+}
+
+#div-texte-resultat {
+    position: absolute;
+    bottom: 5%; 
+    left: 50%;
+    transform: translate(-50%, -5%);
+    text-align:center;
 }
 
 #grid-cocktails{

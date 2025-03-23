@@ -22,6 +22,8 @@ viewIndex.rechercheButton.addEventListener("click", function(event) {
 
 // ### Création de cocktails
 
+let prefixCocktails = ["Dynamo", "Tonic", "Ti'", "Royal"];
+
 viewIndex.btnCreate.addEventListener("click", async function(event) {
 
   if (listIngredient.length != 0) {
@@ -31,7 +33,22 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
       viewIndex.imageCrea.src = dataCocktail.drinkThumb;
     } else {
       viewIndex.imageCrea.src = "images/crea" + Math.floor(Math.random() * 4) + ".png"
+      viewIndex.nomCrea.textContent = prefixCocktails[Math.floor(Math.random() * 4)] + " " + listIngredient[Math.floor(Math.random() * (listIngredient.length-1))]
     }
+
+    // On vide l'affichage de la liste d'ingrédient précédente
+    while(viewIndex.paraCrea.firstChild ){
+      viewIndex.paraCrea.removeChild(viewIndex.paraCrea.firstChild );
+    }
+
+    // Ajout des ingrédients à l'affichage
+    let paraIngredients = document.createElement("p");
+    paraIngredients.textContent = listIngredient[0];
+    listIngredient.shift();
+    for (let ingredient of listIngredient) {
+      paraIngredients.textContent = paraIngredients.textContent + " ; " + ingredient;
+    }
+    viewIndex.paraCrea.appendChild(paraIngredients);
     viewIndex.dialogCrea.showModal();
 
     viewIndex.btnFermerCrea.addEventListener("click", function(event) {
