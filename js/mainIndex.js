@@ -30,7 +30,8 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
     const cocktailExist = await alchimix.searchByIngredientsList(listIngredient);
     console.log(cocktailExist);
 
-    if ( cocktailExist != null) { // insérer condition cocktail existant
+    // Mise à jour de l'image du cocktail créé en fonction de si celui-ci existe déjà ou non
+    if (cocktailExist != null) {
       viewIndex.imageCrea.src = dataCocktail.drinkThumb;
     } else {
       viewIndex.imageCrea.src = "images/crea" + Math.floor(Math.random() * 4) + ".png"
@@ -44,9 +45,10 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
 
     // Ajout des ingrédients à l'affichage
     let paraIngredients = document.createElement("p");
+    
+    // Liste miroir pour que la suppression du premier ingrédient liée à l'affichage ne gène pas
     let listeMiroir = [...listIngredient];
     paraIngredients.textContent = listeMiroir[0];
-
     listeMiroir.shift();
     for (let ingredient of listeMiroir) {
       paraIngredients.textContent = paraIngredients.textContent + " ; " + ingredient;
@@ -63,17 +65,17 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
 //#### Recherche d'ingrédients
 viewIndex.rechercheIngredientButton.addEventListener("click", async function(){
   const resultIngredient = await alchimix.searchInngredientByName(viewIndex.rechercheIngredientInput.value);
-    //On met à jour la vue
-
-  if(resultIngredient == null){
+  console.log(resultIngredient);
+  //On met à jour la vue
+  if (resultIngredient.ingredients == null) {
     viewIndex.resultatIngredients.innerHTML = "<div><p>Aucun ingrédient n'a été trouvé</p></div>"
-}else{
+  } else {
     //On remet le champ vide
     viewIndex.resultatIngredients.innerHTML = "";
     if(resultIngredient.ingredients !=null ){
         //On ajoute une div pour chaque résultat par nom
         for(let i=0; i < resultIngredient.ingredients.length; i++){
-            viewIndex.resultatIngredients.innerHTML += "<div>" + resultIngredient.ingredients[i].strIngredient+ "</div>"
+            viewIndex.resultatIngredients.innerHTML += '<img id=' + resultIngredient.ingredients[i].strIngredient + ' class="ingredient" src="https://www.thecocktaildb.com/images/ingredients/' + (resultIngredient.ingredients[i].strIngredient).toLowerCase() + '-small.png">'
         }
     }
   }

@@ -36,7 +36,6 @@ export const viewIndex = {
 
   divCrea : document.getElementById("resultat-cocktail-div"),
 
-
   rechercheIngredientInput : document.getElementById("recherche-ingredients"),
   rechercheIngredientButton : document.getElementById("btn-recherche-ingredients"),
   resultatIngredients : document.getElementById("grid-ingredients"),
