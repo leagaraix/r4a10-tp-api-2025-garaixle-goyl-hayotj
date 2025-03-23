@@ -131,7 +131,7 @@ input[type="search"]:focus {
 }
 */
 
-/* Boîte de dialogue */
+/* Boîte de confirmation de suppression d'une recherche favorite */
 #confirmation>div {
     display: flex;
     flex-direction: column;
@@ -177,6 +177,7 @@ input[type="search"]:focus {
     margin-top: 20px;
 }
 
+
 /* *** Résultat cocktail *** */
 
 #blast {
@@ -208,4 +209,41 @@ input[type="search"]:focus {
 #grid-cocktails p{
     text-wrap: wrap;
     max-width: 200px;
+}
+
+
+
+/* *** Page de recherche *** */
+
+#cadre-cocktail {
+    display: flex;
+    margin: 5% 20%;
+    align-items: center;
+    gap: 50px;
+}
+
+#cadre-cocktail>div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#nom-cocktail {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 3em;
+}
+
+#cadre-cocktail>div>p {
+    margin: 0px;
+}    
+
+#img-cocktail {
+    width: 300px;
+}
+
+#btn-fermer-recette {
+    position: absolute;
+    top: 10%;
+    right: 10%;
 }

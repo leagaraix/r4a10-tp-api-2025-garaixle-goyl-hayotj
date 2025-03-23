@@ -139,7 +139,7 @@ class Alchimix {
 
 
   /***
-   * Rechercher si un coctail existe ou non par une liste d'ingrédients, si oui on le renvoie, sinon, on renvoie null
+   * Rechercher si un cocktail existe ou non par une liste d'ingrédients, si oui on le renvoie, sinon, on renvoie null
    * @param {Array} ingredients
    * @returns {?Object}
    */
@@ -218,8 +218,40 @@ class Alchimix {
     }
   }
     
+  /**
+   * Récupèrer les détails d'un cocktail à partir de son ID
+   * @param {*} id 
+   */
+  async getCocktail(idCocktail) {
 
-    
+    let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + idCocktail);
+
+    if (!response.ok) {
+      console.log(error);
+    } else {
+
+      let detailsCocktail = await response.json();
+      console.log("Détails :")
+      console.log(detailsCocktail);
+
+      let plusMieux = detailsCocktail['drinks'][0];
+      console.log("Plus mieux :")
+      console.log(plusMieux);
+
+      let id = plusMieux['idDrink'];
+      console.log("id :")
+      console.log(id);
+
+
+      // Renvoyer le tableau avec les détails
+
+      return plusMieux;
+
+    }
+
+
+  }
+
 }
 
 export const alchimix = new Alchimix();
