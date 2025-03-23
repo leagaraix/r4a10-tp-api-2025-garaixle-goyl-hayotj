@@ -1,6 +1,6 @@
 // Import des modules nécessaires
 import { Alchimix } from './model.js';
-import { view } from './view.js';
+import { viewIndex } from './viewIndex.js';
 
 let alchimix = new Alchimix();
 let listIngredient = []
@@ -8,14 +8,16 @@ let listIngredient = []
 // Récupération des données du LocalStorage
 alchimix.retrieveStateFromClient();
 
-// ### Initialisation des listeners#
+// ### Recherche #
 // - Gestion de la saisie au clavier
-view.rechercheButton.addEventListener("click", (evt) => {
+view.rechercheButton.addEventListener("click", async (evt) => {
   console.log(view.rechercheInput.value);
   // Lance la recherche
-  console.log(alchimix.searchByName(view.rechercheInput.value));
-  console.log(alchimix.searchByIngredient(view.rechercheInput.value));
-  // (La vue n'a pas besoin d'être mis à jour ici)
+  const dataByName = await alchimix.searchByName(view.rechercheInput.value);
+  console.log(data.drinks);
+  const dataByIngredient = await alchimix.searchByIngredient(view.rechercheInput.value);
+
+  //On met à jour la vue
 });
 
 
@@ -136,18 +138,18 @@ function chercher(liId) {
 
 // ### Création de cocktails
 
-view.btnCreate.addEventListener("click", function(event) {
+viewIndex.btnCreate.addEventListener("click", function(event) {
 
   if (listIngredient.length != 0) {
     if (false) { // insérer condition cocktail existant
       // insérer image cocktail existant
     } else {
-      view.imageCrea.src = "images/crea" + Math.floor(Math.random() * 4) + ".png"
+      viewIndex.imageCrea.src = "images/crea" + Math.floor(Math.random() * 4) + ".png"
     }
-    view.dialogCrea.showModal();
+    viewIndex.dialogCrea.showModal();
 
-    view.btnFermerCrea.addEventListener("click", function(event) {
-      view.dialogCrea.close();
+    viewIndex.btnFermerCrea.addEventListener("click", function(event) {
+      viewIndex.dialogCrea.close();
     })
   }
 });

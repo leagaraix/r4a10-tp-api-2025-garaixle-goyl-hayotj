@@ -1,7 +1,7 @@
 /**
- * Objet constant représentant la vue.
+ * Objet constant représentant la vue de l'index
  */
-export const view = {
+export const viewIndex = {
 
   //Main
   mainZone: document.getElementById("conteneur"),
