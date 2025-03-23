@@ -185,6 +185,8 @@ class Alchimix {
    */
 
   async searchByIngredientsList(ingredients) { 
+    // ### Trop de requêtes pour cette fonctionnalité
+    // on aurait pu optimiser mais le temps imparti étant trop juste on a laissé ainsi
     
     let exist = true; //On part du principe que le cocktail existe
 
