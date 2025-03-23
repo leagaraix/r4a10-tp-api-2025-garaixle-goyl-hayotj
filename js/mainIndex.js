@@ -1,9 +1,8 @@
 // Import des modules nécessaires
-import { Alchimix } from './model.js';
+import { alchimix } from './model.js';
 import { viewIndex } from './view.js';
 
 //Déclaration des éléments du model
-let alchimix = new Alchimix();
 let listIngredient = []
 
 // Récupération des données du LocalStorage
@@ -35,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       ul.appendChild(li);
     });
   
-    viewIndex.aucunFavoris.parentNode.insertBefore(ul, Index.aucunFavoris.nextSibling);
+    viewIndex.aucunFavoris.parentNode.insertBefore(ul, viewIndex.aucunFavoris.nextSibling);
 
     // Ecoute des clics sur les éléments <li> de la liste, pour lancer la recherche
     // OU clics sur la croix, pour supprimer la recherche

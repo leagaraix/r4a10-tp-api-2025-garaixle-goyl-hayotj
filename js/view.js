@@ -44,7 +44,8 @@ export const viewRecherche = {
     // Bouton de recherche
     rechercheButton: document.getElementById("btn-lancer-recherche"),
   
-    resultatContainer : document.getElementById()
+    // ! J'ai commenté cette ligne parce qu'elle provoquait une erreur
+    //resultatContainer : document.getElementById()
 
 };
 

@@ -1,8 +1,7 @@
-import { Alchimix } from './model.js';
+import { alchimix } from './model.js';
 import { viewRecherche } from './view.js';
 
 //Déclaration des éléments du model
-let alchimix = new Alchimix();
 let listIngredient = []
 
 // Récupération des données du LocalStorage
