@@ -35,6 +35,16 @@ class Alchimix {
     this._favorisRechercheCocktail = Array();
   }
 
+
+  setInput(input){
+
+      this._input = encodeURIComponent(input);
+    
+  }
+
+  getInput(){
+    return this._input;
+  }
   /* GESTION DES RECHERCHES FAVORITES */
 
   /**
@@ -81,6 +91,12 @@ class Alchimix {
     } else {
       localStorage.setItem("rechercheCocktail", "");
     }
+
+    if(this._input !=null){
+      localStorage.setItem("input", JSON.stringify(this._input));
+    }else {
+      localStorage.setItem("input", "");
+    }
    
   }
 
@@ -94,10 +110,36 @@ class Alchimix {
       this._favorisRechercheCocktail = JSON.parse(chaineRechercheCocktail);
     }
 
+    //Récupérer l'input de recherche
+    let input = localStorage.getItem("input");
+    if (input === null || input === "" || input == []) {
+      localStorage.setItem("input", "");
+    } else {
+      this._input = JSON.parse(input);
+    }
   }
 
   //Méthodes de recherches
 
+  /***Rechercher un ingrédient par son nom
+   * @param {string} name
+   * @returns {Array}
+   */
+
+  async searchInngredientByName(name) {  
+    
+    //On effectue l'appel AJAX avec await fetch car sinon le main n'obtient pas la réponse
+    let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + encodeURIComponent(name));
+
+    //On envoie le résultat au model
+    if (!response.ok){
+      console.log(error);      
+    }else{
+      return await response.json();
+    }
+
+}
+  
   /***
    * Rechercher un cocktail par nom
    * @param {string} name
@@ -145,6 +187,8 @@ class Alchimix {
    */
 
   async searchByIngredientsList(ingredients) { 
+    // ### Trop de requêtes pour cette fonctionnalité
+    // on aurait pu optimiser mais le temps imparti étant trop juste on a laissé ainsi
     
     let exist = true; //On part du principe que le cocktail existe
 
@@ -153,13 +197,14 @@ class Alchimix {
     let responseIngredient1 = await fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + encodeURIComponent(ingredients[0]));
     //on gère les erreurs s'il y en a
     if (!responseIngredient1.ok){
-      console.log(error);      
+      console.log(error);   
     }else{
     //sinon on traite la réponse
       let dataIngredient1= await responseIngredient1.json();
       //Si aucun cocktail ne contient le premier ingrédient, alors il n'existe aucun cocktail pareil, exist est mis à false
-      if(dataIngredient1['drinks'] == "no data found"){
+      if(dataIngredient1.drinks == "no data found"){
         exist = false;
+        return null;
       }
 
 
@@ -167,55 +212,60 @@ class Alchimix {
       //On vérifie pour chaque cocktail, s'il est bien dans la liste des autres ingrédients
       if(exist){
         let hasAllIngredients = true;
-
         //Pour chaque cocktail contenant le premier ingrédient
-        dataIngredient1['drinks'].forEach(async cocktail => {
+        dataIngredient1.drinks.forEach(async (cocktail) => {
           //Pour chaque ingrédient (sauf le premier)
-          for(let i=1; i< count(ingredients); i++){
+          for(let i=1; i< ingredients.length; i++){
+            
             //Si le cocktail a tous les ingrédients précédents
             if(hasAllIngredients){
               //on vérifie qu'il a cet ingrédient
               let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + encodeURIComponent(ingredients[i]));
+              
               if (!response.ok){
                 console.log(error);      
               }else{
                 let data = await response.json();
-
+                
                 //Si le cocktail n'est pas dans la liste contenant cet ingrédient, alors il ne correspond pas au mélange
-                if(!cocktail in data['drinks']){
+                if((data.drinks.find((elem) =>elem.id == cocktail.id)) == undefined){
                   hasAllIngredients = false;
                 }
               }
             }
           }
+          
           //Si le cocktail a tous les ingrédients 
           if(hasAllIngredients){
             //On vérifie qu'il n'a pas d'ingrédient en plus
-            let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=" + encodeURIComponent(ingredients[i]));
+            let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + encodeURIComponent(cocktail.idDrink));
             if (!response.ok){
               console.log(error);      
             }else{
-              let data = await response.json();
-              
+              let cocktailInfos = await response.json();
               //Si oui, on le renvoie
-              if(data['drinks'][0]["strIngredient" + (count(ingredients) + 1).toString()] == null){
-                return data['drinks'][0];
+              let ingredient = "strIngredient" + (ingredients.length + 1).toString();
+              if(cocktailInfos.drinks[0][ingredient] == null){
+                
+                return cocktail;
               }else{
-                //Sinon
+                //
                 exist = false;
+                if(exist == false){
+                  return null;
+                }
+                
               }
             }
           }
           
         })
-
-      }
-      //Si le cocktail n'existe pas on renvoie null
-      if(!exist){
-        return null;
       }
       
+      
     }
+
+    
   }
     
   /**

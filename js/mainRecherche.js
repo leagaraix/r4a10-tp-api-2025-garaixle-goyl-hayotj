@@ -12,16 +12,24 @@ alchimix.retrieveStateFromClient();
 
 new RecherchesFavorites(viewRecherche);
 
+//Pour rechercher depuis l'index
+viewRecherche.rechercheInput.value = alchimix.getInput();
+
+
+
 // ### Recherche #
 // - Gestion de la saisie au clavier
 viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
     // Lance la recherche
+    alchimix.setInput(rechercheInput.value);
+    alchimix.saveStateToClient();
     const dataByName = await alchimix.searchByName(viewRecherche.rechercheInput.value);
-    console.log(dataByName.drinks);
+    console.log(dataByName);
+
     const dataByIngredient = await alchimix.searchByIngredient(viewRecherche.rechercheInput.value);
-  console.log(dataByIngredient.drinks);
+
     //On met à jour la vue
-    if(dataByName.drinks == null && dataByIngredient.drinks == "no data found"){
+    if((dataByName.drinks == null && dataByIngredient.drinks == null)  || (dataByName.drinks == "no data found" && dataByIngredient.drinks == "no data found") || (dataByName == undefined && dataByIngredient.drinks == undefined)){
         viewRecherche.resultatContainer.innerHTML = "<div><p>Aucun cocktail n'a été trouvé</p></div>"
     }else{
         //On remet le champ vide
@@ -43,6 +51,11 @@ viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
     }
     
 });
+
+//Recherche suite au chargement de la page
+if(viewRecherche.rechercheInput != ""){
+    viewRecherche.rechercheButton.click();
+}
 
 // ### Affichage des détails d'un cocktail
 

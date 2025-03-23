@@ -26,10 +26,20 @@ export const viewIndex = {
   btnConfirmer: document.getElementById("confirmer-suppression"),
   btnAnnuler: document.getElementById("annuler-suppression"),
   
+  // Boîte modale résultat cocktail
   btnCreate: document.getElementById("btn-valider-creation"),
   dialogCrea: document.getElementById("resultat-cocktail"),
   imageCrea: document.getElementById("img-creation"),
+  nomCrea: document.getElementById("nom-crea"),
+  paraCrea: document.getElementById("p-ingredients"),
   btnFermerCrea: document.getElementById("btn-fermer-crea"),
+
+  divCrea : document.getElementById("resultat-cocktail-div"),
+
+
+  rechercheIngredientInput : document.getElementById("recherche-ingredients"),
+  rechercheIngredientButton : document.getElementById("btn-recherche-ingredients"),
+  resultatIngredients : document.getElementById("grid-ingredients"),
 };
 
 /**
@@ -68,7 +78,7 @@ export const viewRecherche = {
   btnFermerRecette: document.getElementById("btn-fermer-recette"),
   
   // ! J'ai commenté cette ligne parce qu'elle provoquait une erreur
-  //resultatContainer : document.getElementById("grid-cocktails"),
+  resultatContainer : document.getElementById("grid-cocktails"),
 
 };
 

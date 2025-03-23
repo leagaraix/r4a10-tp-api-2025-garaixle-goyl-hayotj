@@ -53,7 +53,7 @@
           <div id="bloc-recherche-ingredients">
 
             <div role="search" id="div-recherche-ingredients">
-              <input name="recherche-ingredients" type="search" placeholder="Cherchez un ingrédient" data-theme="light"/>
+              <input id = "recherche-ingredients" name="recherche-ingredients" type="search" placeholder="Cherchez un ingrédient" data-theme="light"/>
               <button id="btn-recherche-ingredients" class="orange" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
             </div>
 
@@ -106,11 +106,14 @@
     </dialog>
 
     <dialog id="resultat-cocktail">
-      <div>
-        <button autofocus id="btn-fermer-crea">x</button>
         <img id="img-creation" src="images/verre.png">
         <img id="blast" src="images/blast.png">
+      <div id="div-texte-resultat">
+        Bravo ! Vous avez créer un <span id="nom-crea">Nom Cocktail</span>. </br>
+        Ce cocktail est composé de : </br>
+        <p id="p-ingredients"></p>
       </div>
+      <button autofocus id="btn-fermer-crea" class="orange">x</button>
     </dialog>
 
     <script type="module" src="js/mainIndex.js"></script>

@@ -1,6 +1,6 @@
 // Import des modules nécessaires
 import { alchimix } from './model.js';
-import { viewIndex } from './view.js';
+import { viewIndex, viewRecherche } from './view.js';
 import { RecherchesFavorites } from './rechercheFavorites.js';
 
 //Déclaration des éléments du model
@@ -13,16 +13,45 @@ alchimix.retrieveStateFromClient();
 
 new RecherchesFavorites(viewIndex);
 
+// ###Redirection vers la recherche
+viewIndex.rechercheButton.addEventListener("click", function(event) {
+  alchimix.setInput(viewIndex.rechercheInput.value);
+  alchimix.saveStateToClient();
+  window.location = "./recherche.html";
+})
+
 // ### Création de cocktails
 
-viewIndex.btnCreate.addEventListener("click", function(event) {
+let prefixCocktails = ["Dynamo", "Tonic", "Ti'", "Royal"];
+
+viewIndex.btnCreate.addEventListener("click", async function(event) {
 
   if (listIngredient.length != 0) {
-    if (false) { // insérer condition cocktail existant
-      // insérer image cocktail existant
+    const cocktailExist = await alchimix.searchByIngredientsList(["sugar", "water"]);
+    console.log(cocktailExist);
+
+    if ( cocktailExist != null) { // insérer condition cocktail existant
+      viewIndex.imageCrea.src = dataCocktail.drinkThumb;
     } else {
       viewIndex.imageCrea.src = "images/crea" + Math.floor(Math.random() * 4) + ".png"
+      viewIndex.nomCrea.textContent = prefixCocktails[Math.floor(Math.random() * 4)] + " " + listIngredient[Math.floor(Math.random() * (listIngredient.length-1))]
     }
+
+    // On vide l'affichage de la liste d'ingrédient précédente
+    while(viewIndex.paraCrea.firstChild ){
+      viewIndex.paraCrea.removeChild(viewIndex.paraCrea.firstChild );
+    }
+
+    // Ajout des ingrédients à l'affichage
+    let paraIngredients = document.createElement("p");
+    let listeMiroir = [...listIngredient];
+    paraIngredients.textContent = listeMiroir[0];
+
+    listeMiroir.shift();
+    for (let ingredient of listeMiroir) {
+      paraIngredients.textContent = paraIngredients.textContent + " ; " + ingredient;
+    }
+    viewIndex.paraCrea.appendChild(paraIngredients);
     viewIndex.dialogCrea.showModal();
 
     viewIndex.btnFermerCrea.addEventListener("click", function(event) {
@@ -31,7 +60,24 @@ viewIndex.btnCreate.addEventListener("click", function(event) {
   }
 });
 
+//#### Recherche d'ingrédients
+viewIndex.rechercheIngredientButton.addEventListener("click", async function(){
+  const resultIngredient = await alchimix.searchInngredientByName(viewIndex.rechercheIngredientInput.value);
+    //On met à jour la vue
 
+  if(resultIngredient == null){
+    viewIndex.resultatIngredients.innerHTML = "<div><p>Aucun ingrédient n'a été trouvé</p></div>"
+}else{
+    //On remet le champ vide
+    viewIndex.resultatIngredients.innerHTML = "";
+    if(resultIngredient.ingredients !=null ){
+        //On ajoute une div pour chaque résultat par nom
+        for(let i=0; i < resultIngredient.ingredients.length; i++){
+            viewIndex.resultatIngredients.innerHTML += "<div>" + resultIngredient.ingredients[i].strIngredient+ "</div>"
+        }
+    }
+  }
+});
 // ### Partie DragNDrop
 let currentDroppable = null;
 
