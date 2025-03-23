@@ -5,7 +5,8 @@
     <meta charset="utf-8" />
     <link rel="shortcut icon" type="image/x-icon" href="favicon-verre.ico" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css"/>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="style.css"></noscript>
   </head>
 
   <body>
@@ -20,12 +21,6 @@
         <p>Voici vos cocktails préférés, et ceux que vous avez créé.</p>
       </hgroup>
       <div class="container">
-
-        <div role="search">
-          <input name="search" type="search" placeholder="Chercher" list="last-search" data-theme="light"/>
-          <button id="btn-lancer-recherche" class="orange" type="submit" value="Chercher"><img id="img-loupe" src="images/loupe.svg" alt="Loupe pour recherche" /></button>
-          <button id="btn-ajouter-favori" class="rouge" type="submit" value="Chercher" disabled><img id="img-etoile" src="images/etoile-vide.svg" alt="Etoile de favori vide" /></button>
-        </div>
 
         <container class="large">
           <div id="grid-cocktails" class="grid">
