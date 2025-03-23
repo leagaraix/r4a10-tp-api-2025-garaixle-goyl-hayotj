@@ -1,25 +1,13 @@
 // Import des modules nécessaires
 import { Alchimix } from './model.js';
-import { viewIndex } from './viewIndex.js';
+import { viewIndex } from './view.js';
 
+//Déclaration des éléments du model
 let alchimix = new Alchimix();
 let listIngredient = []
 
 // Récupération des données du LocalStorage
 alchimix.retrieveStateFromClient();
-
-// ### Recherche #
-// - Gestion de la saisie au clavier
-view.rechercheButton.addEventListener("click", async (evt) => {
-  console.log(view.rechercheInput.value);
-  // Lance la recherche
-  const dataByName = await alchimix.searchByName(view.rechercheInput.value);
-  console.log(data.drinks);
-  const dataByIngredient = await alchimix.searchByIngredient(view.rechercheInput.value);
-
-  //On met à jour la vue
-});
-
 
 // ### Gestion des recherches favorites
 
@@ -29,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   let favorisRechercheCocktail = alchimix.getFavorisRechercheCocktail();
 
   if (favorisRechercheCocktail.length > 0) {
-    view.aucunFavoris.hidden = true;
+    viewIndex.aucunFavoris.hidden = true;
 
     let ul = document.createElement("ul");
     ul.id = "bloc-recherches-favorites";
@@ -47,7 +35,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
       ul.appendChild(li);
     });
   
-    view.aucunFavoris.parentNode.insertBefore(ul, view.aucunFavoris.nextSibling);
+    viewIndex.aucunFavoris.parentNode.insertBefore(ul, Index.aucunFavoris.nextSibling);
 
     // Ecoute des clics sur les éléments <li> de la liste, pour lancer la recherche
     // OU clics sur la croix, pour supprimer la recherche
@@ -63,68 +51,68 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   
   } else {
-    view.aucunFavoris.hidden = false;
+    viewIndex.aucunFavoris.hidden = false;
   }
 
   // Vérifie au chargement de la page si le contenu de la recherche 
   // est une recherche favorite, pour afficher l'étoile correspondante
-  if (alchimix.checkFav(view.rechercheInput.value) === true) {
-    view.imgBtnFav.setAttribute("src", "images/etoile-pleine.svg");
+  if (alchimix.checkFav(viewIndex.rechercheInput.value) === true) {
+    viewIndex.imgBtnFav.setAttribute("src", "images/etoile-pleine.svg");
   }
 
 });
 
 
 // - Changements d'états du bouton Favoris
-view.rechercheInput.addEventListener("input", function(event) {
+viewIndex.rechercheInput.addEventListener("input", function(event) {
 
-  view.btnFav.disabled = false;
-  view.imgBtnFav.setAttribute("src", "images/etoile-vide.svg");
+  viewIndex.btnFav.disabled = false;
+  viewIndex.imgBtnFav.setAttribute("src", "images/etoile-vide.svg");
 
-  if (view.rechercheInput.value == "") {
+  if (viewIndex.rechercheInput.value == "") {
     // Désactiver de nouveau le bouton quand le champ redevient vide
-    view.btnFav.disabled = true;
-  } else if (alchimix.checkFav(view.rechercheInput.value) === true) {
+    viewIndex.btnFav.disabled = true;
+  } else if (alchimix.checkFav(viewIndex.rechercheInput.value) === true) {
     // On change l'image contenue dans le bouton btnFav
-    view.imgBtnFav.setAttribute("src", "images/etoile-pleine.svg");
+    viewIndex.imgBtnFav.setAttribute("src", "images/etoile-pleine.svg");
   }
     
 });
 
 
 // - Ajout ou suppression d'une recherche aux favoris
-view.btnFav.addEventListener("click", function(event) {
+viewIndex.btnFav.addEventListener("click", function(event) {
   // Si la recherche n'est pas encore dans les favoris, l'ajouter
   // Si elle y est déjà, la supprimer
-  if (alchimix.checkFav(view.rechercheInput.value) !== true) {
-    alchimix.addRechercheCocktail(view.rechercheInput.value);
-    view.imgBtnFav.setAttribute("src", "images/etoile-pleine.svg");
+  if (alchimix.checkFav(viewIndex.rechercheInput.value) !== true) {
+    alchimix.addRechercheCocktail(viewIndex.rechercheInput.value);
+    viewIndex.imgBtnFav.setAttribute("src", "images/etoile-pleine.svg");
     window.location.reload();
   } else {
-    let id = alchimix.getFavorisRechercheCocktail().indexOf(view.rechercheInput.value);
+    let id = alchimix.getFavorisRechercheCocktail().indexOf(viewIndex.rechercheInput.value);
     suppression(id);
   }
 });
 
 // Supprime une recherche de la liste
 function suppression() {
-  view.confirmation.showModal();
+  viewIndex.confirmation.showModal();
 
     // Confirmation de la suppression
-    view.btnConfirmer.addEventListener("click", function(event) {
-      alchimix.deleteRechercheCocktail(view.rechercheInput.value);
-      view.confirmation.close();
-      view.imgBtnFav.setAttribute("src", "images/etoile-vide.svg");
+    viewIndex.btnConfirmer.addEventListener("click", function(event) {
+      alchimix.deleteRechercheCocktail(viewIndex.rechercheInput.value);
+      viewIndex.confirmation.close();
+      viewIndex.imgBtnFav.setAttribute("src", "images/etoile-vide.svg");
       window.location.reload();
     });
 
     // Annulation de la suppression par un clic sur "Annuler"
-    view.btnAnnuler.addEventListener("click", function(event) {
-      view.confirmation.close();
+    viewIndex.btnAnnuler.addEventListener("click", function(event) {
+      viewIndex.confirmation.close();
     });
     // OU par un clic en-dehors des boutons
-    view.confirmation.addEventListener("click", function(event) {
-      view.confirmation.close();
+    viewIndex.confirmation.addEventListener("click", function(event) {
+      viewIndex.confirmation.close();
     });
 }
 
@@ -132,7 +120,7 @@ function suppression() {
 function chercher(liId) {
   let id = liId.slice(-1);
   let tableauRecherchesFav = alchimix.getFavorisRechercheCocktail();
-  view.rechercheInput.value = tableauRecherchesFav[id];
+  viewIndex.rechercheInput.value = tableauRecherchesFav[id];
 }
 
 

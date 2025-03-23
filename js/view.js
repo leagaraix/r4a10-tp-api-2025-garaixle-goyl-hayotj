@@ -30,4 +30,28 @@ export const viewIndex = {
   dialogCrea: document.getElementById("resultat-cocktail"),
   imageCrea: document.getElementById("img-creation"),
   btnFermerCrea: document.getElementById("btn-fermer-crea"),
+
+  test : document.getElementById("sdqsjdhqsjhdqsjhds"),
+};
+
+/**
+ * Objet constant représentant la vue de la recherche
+ */
+export const viewRecherche = {
+    // Champ de recherche text
+    rechercheInput: document.getElementById("rechercheInput"),
+
+    // Bouton de recherche
+    rechercheButton: document.getElementById("btn-lancer-recherche"),
+  
+    resultatContainer : document.getElementById()
+
+};
+
+/**
+ * Objet constant représentant la vue des favoris
+ */
+export const viewFavoris = {
+
+
 };
