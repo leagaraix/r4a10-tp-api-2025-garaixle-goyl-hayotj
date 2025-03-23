@@ -119,6 +119,25 @@ class Alchimix {
 
   //Méthodes de recherches
 
+  /***Rechercher un ingrédient par son nom
+   * @param {string} name
+   * @returns {Array}
+   */
+
+  async searchInngredientByName(name) {  
+    
+    //On effectue l'appel AJAX avec await fetch car sinon le main n'obtient pas la réponse
+    let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/search.php?i=" + encodeURIComponent(name));
+
+    //On envoie le résultat au model
+    if (!response.ok){
+      console.log(error);      
+    }else{
+      return await response.json();
+    }
+
+}
+  
   /***
    * Rechercher un cocktail par nom
    * @param {string} name

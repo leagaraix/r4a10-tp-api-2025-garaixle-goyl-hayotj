@@ -33,8 +33,13 @@ export const viewIndex = {
   nomCrea: document.getElementById("nom-crea"),
   paraCrea: document.getElementById("p-ingredients"),
   btnFermerCrea: document.getElementById("btn-fermer-crea"),
-  
+
   divCrea : document.getElementById("resultat-cocktail-div"),
+
+
+  rechercheIngredientInput : document.getElementById("recherche-ingredients"),
+  rechercheIngredientButton : document.getElementById("btn-recherche-ingredients"),
+  resultatIngredients : document.getElementById("grid-ingredients"),
 };
 
 /**
