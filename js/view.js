@@ -30,8 +30,6 @@ export const viewIndex = {
   dialogCrea: document.getElementById("resultat-cocktail"),
   imageCrea: document.getElementById("img-creation"),
   btnFermerCrea: document.getElementById("btn-fermer-crea"),
-
-  test : document.getElementById("sdqsjdhqsjhdqsjhds"),
 };
 
 /**
@@ -60,7 +58,7 @@ export const viewRecherche = {
   btnAnnuler: document.getElementById("annuler-suppression"),
   
     // ! J'ai commenté cette ligne parce qu'elle provoquait une erreur
-    //resultatContainer : document.getElementById()
+    //resultatContainer : document.getElementById("grid-cocktails"),
 
 };
 

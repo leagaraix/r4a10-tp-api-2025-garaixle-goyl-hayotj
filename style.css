@@ -195,3 +195,17 @@ input[type="search"]:focus {
     top: 20%;
     right: 25%;
 }
+
+#grid-cocktails{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+#grid-cocktails div{
+    margin : 20px;
+}
+
+#grid-cocktails p{
+    text-wrap: wrap;
+    max-width: 200px;
+}
