@@ -2,7 +2,7 @@
  * Classe Alchimix
  * (Modèle stockant les infos nécessaires à la création de cocktails)
  */
-export class Alchimix {
+class Alchimix {
 
   //Attributs
   /**
@@ -222,6 +222,6 @@ export class Alchimix {
     
 }
 
-
+export const alchimix = new Alchimix();
 
 

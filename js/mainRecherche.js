@@ -1,12 +1,16 @@
-import { Alchimix } from './model.js';
+import { alchimix } from './model.js';
 import { viewRecherche } from './view.js';
+import { RecherchesFavorites } from './rechercheFavorites.js';
 
 //Déclaration des éléments du model
-let alchimix = new Alchimix();
 let listIngredient = []
 
 // Récupération des données du LocalStorage
 alchimix.retrieveStateFromClient();
+
+// ### Gestion des recherches favorites
+
+new RecherchesFavorites(viewRecherche);
 
 // ### Recherche #
 // - Gestion de la saisie au clavier
