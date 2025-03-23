@@ -26,6 +26,7 @@ export const viewIndex = {
   btnConfirmer: document.getElementById("confirmer-suppression"),
   btnAnnuler: document.getElementById("annuler-suppression"),
   
+  // Boîte modale résultat cocktail
   btnCreate: document.getElementById("btn-valider-creation"),
   dialogCrea: document.getElementById("resultat-cocktail"),
   imageCrea: document.getElementById("img-creation"),

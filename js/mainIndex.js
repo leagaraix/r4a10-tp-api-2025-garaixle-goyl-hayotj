@@ -29,6 +29,7 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
   if (listIngredient.length != 0) {
     const cocktailExist = await alchimix.searchByIngredientsList(["sugar", "water"]);
     console.log(cocktailExist);
+
     if ( cocktailExist != null) { // insérer condition cocktail existant
       viewIndex.imageCrea.src = dataCocktail.drinkThumb;
     } else {
@@ -43,9 +44,11 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
 
     // Ajout des ingrédients à l'affichage
     let paraIngredients = document.createElement("p");
-    paraIngredients.textContent = listIngredient[0];
-    listIngredient.shift();
-    for (let ingredient of listIngredient) {
+    let listeMiroir = [...listIngredient];
+    paraIngredients.textContent = listeMiroir[0];
+
+    listeMiroir.shift();
+    for (let ingredient of listeMiroir) {
       paraIngredients.textContent = paraIngredients.textContent + " ; " + ingredient;
     }
     viewIndex.paraCrea.appendChild(paraIngredients);
