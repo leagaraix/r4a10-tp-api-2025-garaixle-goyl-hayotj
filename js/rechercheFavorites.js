@@ -19,6 +19,7 @@ export class RecherchesFavorites {
     afficherRecherchesFavorites() {
 
         let favorisRechercheCocktail = this.alchimix.getFavorisRechercheCocktail();
+        console.log(favorisRechercheCocktail);
 
         // Par défaut, l'étoile est vide et le bouton est désactivé
         this.view.btnFav.disabled = true;

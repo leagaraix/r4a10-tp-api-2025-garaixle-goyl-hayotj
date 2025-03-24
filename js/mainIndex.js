@@ -6,6 +6,12 @@ import { RecherchesFavorites } from './rechercheFavorites.js';
 //Déclaration des éléments du model
 let listIngredient = []
 
+// Récupération des données du LocalStorage
+alchimix.retrieveStateFromClient();
+
+// ### Gestion des recherches favorites
+new RecherchesFavorites(viewIndex);
+
 // Remplissage des ingrédients par défauts aléatoirement
 viewIndex.resultatIngredients.innerHTML = "";
 for (let i=0; i < 4; i++) {
@@ -26,17 +32,17 @@ for (let i=0; i < 4; i++) {
     imgIng.src = 'https://www.thecocktaildb.com/images/ingredients/' + (randomIng.ingredients[0].strIngredient).toLowerCase() + '-small.png';
     imgIng.id = randomIng.ingredients[0].strIngredient;
     imgIng.className = "ingredient";
-    divGrid.appendChild(imgIng);
+    imgIng.setAttribute("title", randomIng.ingredients[0].strIngredient);
+
+    let span = document.createElement("span");
+    span.className = "spanIngName";
+    span.setAttribute("data-tooltip", randomIng.ingredients[0].strIngredient);
+    
+    divGrid.appendChild(span);
+    span.appendChild(imgIng);
   }
   viewIndex.resultatIngredients.appendChild(divGrid);
 }
-
-// Récupération des données du LocalStorage
-alchimix.retrieveStateFromClient();
-
-// ### Gestion des recherches favorites
-
-new RecherchesFavorites(viewIndex);
 
 // ###Redirection vers la recherche
 viewIndex.rechercheButton.addEventListener("click", function(event) {
