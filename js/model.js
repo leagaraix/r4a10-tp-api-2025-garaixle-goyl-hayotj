@@ -77,7 +77,7 @@ class Alchimix {
   /**
    * Vérifie si la recherche se trouve dans la liste des recherches favorites
    */
-  checkFav(recherche) {
+  isFav(recherche) {
     return (this._favorisRechercheCocktail.indexOf(recherche) !== -1);
   }
 
