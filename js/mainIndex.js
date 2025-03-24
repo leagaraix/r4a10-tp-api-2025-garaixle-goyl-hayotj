@@ -25,7 +25,7 @@ for (let i=0; i < 4; i++) {
     let imgIng = document.createElement("img");
     imgIng.src = 'https://www.thecocktaildb.com/images/ingredients/' + (randomIng.ingredients[0].strIngredient).toLowerCase() + '-small.png';
     imgIng.id = randomIng.ingredients[0].strIngredient;
-    imgIng.class = "ingredient";
+    imgIng.className = "ingredient";
     divGrid.appendChild(imgIng);
   }
   viewIndex.resultatIngredients.appendChild(divGrid);
