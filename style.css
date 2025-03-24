@@ -46,10 +46,6 @@ button:not(:hover) {
     transition: 0.5s;
 }
 
-#img-loupe, #img-etoile {
-    height: 20px;
-}
-
 .orange {
     background-color: #DB7C26;
     border: #DB7C26;
@@ -61,6 +57,10 @@ button:not(:hover) {
 }
 
 /* Barre de recherche et liste de recherches favorites */
+
+#img-loupe, #img-etoile {
+    height: 20px;
+}
 
 #btn-favori-recherche:disabled {
     background-color: gray;

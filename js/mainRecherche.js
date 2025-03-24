@@ -15,8 +15,6 @@ new RecherchesFavorites(viewRecherche);
 //Pour rechercher depuis l'index
 viewRecherche.rechercheInput.value = alchimix.getInput();
 
-
-
 // ### Recherche #
 // - Gestion de la saisie au clavier
 viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
