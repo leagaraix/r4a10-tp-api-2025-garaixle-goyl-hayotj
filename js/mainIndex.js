@@ -27,8 +27,8 @@ let prefixCocktails = ["Dynamo", "Tonic", "Ti'", "Royal"];
 viewIndex.btnCreate.addEventListener("click", async function(event) {
 
   if (listIngredient.length != 0) {
-    const cocktailExist = await alchimix.searchByIngredientsList(["sugar", "water"]);
-    console.log(cocktailExist);
+    //const cocktailExist = await alchimix.searchByIngredientsList(["sugar", "water"]);
+    const cocktailExist = null;
 
     // Mise à jour de l'image du cocktail créé en fonction de si celui-ci existe déjà ou non
     if (cocktailExist != null) {
