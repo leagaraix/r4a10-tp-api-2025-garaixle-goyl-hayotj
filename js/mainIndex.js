@@ -90,13 +90,15 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
 
 // ### Recherche d'ingrédients
 viewIndex.rechercheIngredientButton.addEventListener("click", async function(){
+  //On remet le champ vide
+  viewIndex.resultatIngredients.innerHTML = "";
+  viewIndex.attenteGif.style.display = "block";
   const resultIngredient = await alchimix.searchInngredientByName(viewIndex.rechercheIngredientInput.value);
   //On met à jour la vue
   if (resultIngredient.ingredients == null) {
     viewIndex.resultatIngredients.innerHTML = "<div><p>Aucun ingrédient n'a été trouvé</p></div>"
   } else {
-    //On remet le champ vide
-    viewIndex.resultatIngredients.innerHTML = "";
+    
     if(resultIngredient.ingredients !=null ){
         //On ajoute une div pour chaque résultat par nom
         for(let i=0; i < resultIngredient.ingredients.length; i++){
@@ -104,6 +106,8 @@ viewIndex.rechercheIngredientButton.addEventListener("click", async function(){
         }
     }
   }
+
+  viewIndex.attenteGif.style.display = "none";
 });
 // ### Partie DragNDrop
 let currentDroppable = null;

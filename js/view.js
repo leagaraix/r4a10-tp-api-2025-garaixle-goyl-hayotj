@@ -39,6 +39,8 @@ export const viewIndex = {
   rechercheIngredientInput : document.getElementById("recherche-ingredients"),
   rechercheIngredientButton : document.getElementById("btn-recherche-ingredients"),
   resultatIngredients : document.getElementById("grid-ingredients"),
+
+  attenteGif : document.getElementById('attenteIngredient'),
 };
 
 /**
