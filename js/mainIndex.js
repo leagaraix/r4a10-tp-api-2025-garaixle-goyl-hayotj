@@ -101,8 +101,8 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
 });
 
 // ### Recherche d'ingrédients
-viewIndex.rechercheIngredientButton.addEventListener("click", async function(){
-  //On remet le champ vide
+async function searchIng() {
+//On remet le champ vide
   viewIndex.resultatIngredients.innerHTML = "";
   viewIndex.attenteGif.style.display = "block";
   const resultIngredient = await alchimix.searchInngredientByName(viewIndex.rechercheIngredientInput.value);
@@ -120,7 +120,18 @@ viewIndex.rechercheIngredientButton.addEventListener("click", async function(){
   }
 
   viewIndex.attenteGif.style.display = "none";
+}
+
+viewIndex.rechercheIngredientButton.addEventListener("click", function(event) {
+  searchIng(event);
 });
+
+viewIndex.rechercheIngredientInput.addEventListener("keyup", function(event) {
+  if (event.code === "Enter") {
+    searchIng(event);
+  }
+})
+
 // ### Partie DragNDrop
 let currentDroppable = null;
 
