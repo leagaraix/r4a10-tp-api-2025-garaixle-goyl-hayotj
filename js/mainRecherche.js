@@ -16,8 +16,8 @@ new RecherchesFavorites(viewRecherche);
 viewRecherche.rechercheInput.value = alchimix.getInput();
 
 // ### Recherche #
-// - Gestion de la saisie au clavier
-viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
+
+async function search(event) {
     // Lance la recherche
     alchimix.setInput(rechercheInput.value);
     
@@ -95,6 +95,17 @@ viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
         })
         })
     };
+}
+
+// - Gestion de la saisie au clavier
+viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
+    search(evt);
+});
+
+viewRecherche.rechercheInput.addEventListener("keydown", function(event) {
+    if (event.code === "Enter") {
+      search(event);
+    }
 });
 
 //Recherche suite au chargement de la page
