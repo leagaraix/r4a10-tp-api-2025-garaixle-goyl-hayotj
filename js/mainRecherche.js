@@ -28,7 +28,7 @@ viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
 
     //On met à jour la vue
     if((dataByName.drinks == null && dataByIngredient.drinks == "no data found")  || (dataByName.drinks == "no data found" && dataByIngredient.drinks == "no data found") || (dataByName == undefined && dataByIngredient.drinks == undefined)){
-        viewRecherche.resultatContainer.innerHTML = "<div><p>Aucun cocktail n'a été trouvé</p></div>"
+        viewRecherche.resultatContainer.innerHTML = "<p id='aucun-resultat'>Aucun cocktail ne correspond à votre recherche.</p>"
     }else{
         //On remet le champ vide
         viewRecherche.resultatContainer.innerHTML = "";

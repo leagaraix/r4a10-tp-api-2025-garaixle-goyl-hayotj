@@ -73,6 +73,13 @@ nav {
     text-align: center;
 }
 
+#aucun-resultat {
+    margin: auto;
+    font-style: italic;
+    text-align: center;
+    white-space: nowrap;
+}
+
 #bloc-recherches-favorites {
     display: flex;
     gap: 20px;
