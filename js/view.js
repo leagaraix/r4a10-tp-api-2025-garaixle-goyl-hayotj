@@ -79,4 +79,8 @@ export const viewRecherche = {
   // ! J'ai commenté cette ligne parce qu'elle provoquait une erreur
   resultatContainer : document.getElementById("grid-cocktails"),
 
+  attenteGif : document.getElementById('attente'),
+
+  cocktailAffichage : document.getElementsByClassName('cocktail-affichage'),
+
 };

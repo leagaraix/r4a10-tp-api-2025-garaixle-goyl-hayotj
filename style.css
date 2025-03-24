@@ -256,3 +256,8 @@ nav {
     top: 10%;
     right: 10%;
 }
+
+/*Attente gif*/
+#attente{
+    display:none;
+}
