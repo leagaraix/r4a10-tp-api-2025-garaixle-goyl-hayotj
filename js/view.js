@@ -68,8 +68,7 @@ export const viewRecherche = {
   btnConfirmer: document.getElementById("confirmer-suppression"),
   btnAnnuler: document.getElementById("annuler-suppression"),
 
-  // Test de récupération des détails d'un cocktail
-  btnTestMargarita: document.getElementById("btn-test-margarita"),
+  // Récupération des détails d'un cocktail
   pageCocktail: document.getElementById("page-cocktail"),
   nomCocktail: document.getElementById("nom-cocktail"),
   alcoholicGlassCocktail: document.getElementById("alcoholic-glass-cocktail"),
@@ -77,12 +76,13 @@ export const viewRecherche = {
   listeIngredients: document.getElementById("liste-ingredients-cocktail"),
   recetteCocktail: document.getElementById("recette-cocktail"),
   btnFermerRecette: document.getElementById("btn-fermer-recette"),
+  cocktailAffichage : document.getElementsByClassName('cocktail-affichage'),
+
   
-  // ! J'ai commenté cette ligne parce qu'elle provoquait une erreur
+
   resultatContainer : document.getElementById("grid-cocktails"),
 
   attenteGif : document.getElementById('attente'),
 
-  cocktailAffichage : document.getElementsByClassName('cocktail-affichage'),
 
 };

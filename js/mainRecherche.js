@@ -45,12 +45,10 @@ async function search(event) {
         if(dataByIngredient.drinks != "no data found"){
             //On ajoute une div pour chaque résultat par nom
             for(let j=0; j < dataByIngredient.drinks.length; j++){
-                /* Vérifieer que l'element n'est pas déjà affiché
-                if((dataByName.drinks.find((elem) => elem.id == dataByIngredient.drinks[j].id)) == undefined){
-                }
-                */    
+                ///Vérifieer que l'element n'est pas déjà affiché
+                if(!(dataByName.drinks.find((elem) => elem.idDrink === dataByIngredient.drinks[j].idDrink))){
                     viewRecherche.resultatContainer.innerHTML += "<div class='cocktail-affichage' id='"  +dataByIngredient.drinks[j].idDrink +  "'> <img src=\"" + dataByIngredient.drinks[j].strDrinkThumb + "/small"+"\"/> <p>" + dataByIngredient.drinks[j].strDrink + "</p> </div>"
-                
+                }
             }
         }
         
@@ -113,48 +111,5 @@ viewRecherche.rechercheInput.addEventListener("keydown", function(event) {
 //Recherche suite au chargement de la page
 if(viewRecherche.rechercheInput != ""){
     viewRecherche.rechercheButton.click();
-}
-
-// ### Affichage des détails d'un cocktail
-
-viewRecherche.btnTestMargarita.addEventListener("click", async (evt) => {
-
-    // ! Pour les tests 
-    let idCocktail = 11007;
-
-    const detailsCocktails = await alchimix.getCocktail(idCocktail);
-
-    let id = detailsCocktails['idDrink'];
-
-    // Eviter la duplication des <li> quand on réouvre le dialogue
-    viewRecherche.listeIngredients.innerHTML = "";
-
-    viewRecherche.pageCocktail.showModal();
-
-    viewRecherche.nomCocktail.innerText = detailsCocktails['strDrink'];
-    viewRecherche.alcoholicGlassCocktail.innerText = detailsCocktails['strAlcoholic'] + " ; " + detailsCocktails['strGlass'];
-    viewRecherche.imgCocktail.setAttribute("src", detailsCocktails['strDrinkThumb']);
-    
-    // Récupérer les ingrédients et leurs mesures
-    let i = 1;
-    while (detailsCocktails['strIngredient' + i.toString()] !== null) {
-        let li = document.createElement("li");
-        li.textContent = (detailsCocktails['strMeasure' + i.toString()] != null ? detailsCocktails['strMeasure' + i.toString()] : "") + " " + detailsCocktails['strIngredient' + i.toString()];
-        viewRecherche.listeIngredients.appendChild(li);
-        i++;
-    }
-
-    // Afficher les instructions (en français de préférence, anglais sinon)
-    if (detailsCocktails['strInstructionsFR'] != null) {
-        viewRecherche.recetteCocktail.innerText = detailsCocktails['strInstructionsFR'];
-    } else {
-        viewRecherche.recetteCocktail.innerText = detailsCocktails['strInstructions'];
-    }
-
-    viewRecherche.btnFermerRecette.addEventListener("click", function(event) {
-        viewRecherche.pageCocktail.close();
-    })
-
-})
-
+};
 
