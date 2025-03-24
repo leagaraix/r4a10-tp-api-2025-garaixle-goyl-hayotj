@@ -33,13 +33,8 @@ for (let i=0; i < 4; i++) {
     imgIng.id = randomIng.ingredients[0].strIngredient;
     imgIng.className = "ingredient";
     imgIng.setAttribute("title", randomIng.ingredients[0].strIngredient);
-
-    let span = document.createElement("span");
-    span.className = "spanIngName";
-    span.setAttribute("data-tooltip", randomIng.ingredients[0].strIngredient);
     
-    divGrid.appendChild(span);
-    span.appendChild(imgIng);
+    divGrid.appendChild(imgIng);
   }
   viewIndex.resultatIngredients.appendChild(divGrid);
 }
