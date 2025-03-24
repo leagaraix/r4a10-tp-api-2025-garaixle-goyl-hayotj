@@ -39,10 +39,21 @@ alchimix.retrieveStateFromClient();
 new RecherchesFavorites(viewIndex);
 
 // ###Redirection vers la recherche
-viewIndex.rechercheButton.addEventListener("click", function(event) {
+
+function search(event)  {
   alchimix.setInput(viewIndex.rechercheInput.value);
   alchimix.saveStateToClient();
   window.location = "./recherche.html";
+}
+
+viewIndex.rechercheButton.addEventListener("click", function(event) {
+  search(event);
+} )
+
+viewIndex.rechercheInput.addEventListener("keydown", function(event) {
+  if (event.code === "Enter") {
+    search(event);
+  }
 })
 
 // ### Création de cocktails
