@@ -6,6 +6,31 @@ import { RecherchesFavorites } from './rechercheFavorites.js';
 //Déclaration des éléments du model
 let listIngredient = []
 
+// Remplissage des ingrédients par défauts aléatoirement
+viewIndex.resultatIngredients.innerHTML = "";
+for (let i=0; i < 4; i++) {
+  let divGrid = document.createElement("div");
+  
+  for(let j=0; j < 4; j++) {
+    let idIng = Math.floor(Math.random() * 500);
+    let randomIng = await alchimix.searchIngredientById(idIng);
+
+    // Certains id ne renvoient rien, on recommence donc jusqu'à en avoir un bon
+    while (randomIng.ingredients == null) {
+      let idIng = Math.floor(Math.random() * 500);
+      randomIng = await alchimix.searchIngredientById(idIng);
+    }
+
+    // Remplissage de l'image qui sera affichée dans le grid
+    let imgIng = document.createElement("img");
+    imgIng.src = 'https://www.thecocktaildb.com/images/ingredients/' + (randomIng.ingredients[0].strIngredient).toLowerCase() + '-small.png';
+    imgIng.id = randomIng.ingredients[0].strIngredient;
+    imgIng.className = "ingredient";
+    divGrid.appendChild(imgIng);
+  }
+  viewIndex.resultatIngredients.appendChild(divGrid);
+}
+
 // Récupération des données du LocalStorage
 alchimix.retrieveStateFromClient();
 
@@ -30,16 +55,17 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
     //const cocktailExist = await alchimix.searchByIngredientsList(["sugar", "water"]);
     const cocktailExist = null;
 
-    // Mise à jour de l'image du cocktail créé en fonction de si celui-ci existe déjà ou non
+    // Mise à jour de l'image et du nom du cocktail créé en fonction de si celui-ci existe déjà ou non
     if (cocktailExist != null) {
       viewIndex.imageCrea.src = dataCocktail.drinkThumb;
+      viewIndex.nomCrea.textContent = dataCocktail.strDrink;
     } else {
       viewIndex.imageCrea.src = "images/crea" + Math.floor(Math.random() * 4) + ".png"
       viewIndex.nomCrea.textContent = prefixCocktails[Math.floor(Math.random() * 4)] + " " + listIngredient[Math.floor(Math.random() * (listIngredient.length-1))]
     }
 
     // On vide l'affichage de la liste d'ingrédient précédente
-    while(viewIndex.paraCrea.firstChild ){
+    while (viewIndex.paraCrea.firstChild ) {
       viewIndex.paraCrea.removeChild(viewIndex.paraCrea.firstChild );
     }
 
@@ -62,10 +88,9 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
   }
 });
 
-//#### Recherche d'ingrédients
+// ### Recherche d'ingrédients
 viewIndex.rechercheIngredientButton.addEventListener("click", async function(){
   const resultIngredient = await alchimix.searchInngredientByName(viewIndex.rechercheIngredientInput.value);
-  console.log(resultIngredient);
   //On met à jour la vue
   if (resultIngredient.ingredients == null) {
     viewIndex.resultatIngredients.innerHTML = "<div><p>Aucun ingrédient n'a été trouvé</p></div>"

@@ -137,8 +137,25 @@ class Alchimix {
     }else{
       return await response.json();
     }
+  }
 
-}
+  /***Rechercher un ingrédient par son identifiant
+   * @param {int} id
+   * @returns {Array}
+   */
+
+  async searchIngredientById(id) {  
+    
+    //On effectue l'appel AJAX avec await fetch car sinon le main n'obtient pas la réponse
+    let response = await fetch("https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=" + id);
+
+    //On envoie le résultat au model
+    if (!response.ok){
+      console.log(error);      
+    }else{
+      return await response.json();
+    }
+  }
   
   /***
    * Rechercher un cocktail par nom
