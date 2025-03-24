@@ -115,12 +115,13 @@ export class RecherchesFavorites {
 
     // Supprime une recherche de la liste
     // id doit être un entier 
-    // ! Utilisation de fonctions fléchées pour conserver this tel qu'il
-    // ! était au moment de la définition de cette fonction
-    // ! (autrement, this est mal interprété) 
     suppression(id) {
         this.view.confirmation.showModal();
         let tableauRecherchesFav = this.alchimix.getFavorisRechercheCocktail();
+
+        // ! Utilisation de fonctions fléchées pour conserver this tel qu'il
+        // ! était au moment de la définition de cette fonction
+        // ! (autrement, this est mal interprété) 
 
         // Confirmation de la suppression
         this.view.btnConfirmer.onclick = () => {
