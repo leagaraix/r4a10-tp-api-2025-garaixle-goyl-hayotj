@@ -1,17 +1,6 @@
-/* *** Barre de navigation *** */
-
-nav {
-    width: 96%;
-    margin: auto;
-    margin-top: 20px;
-}
-
-#logo {
-    text-decoration: none;
-}
-
-
+/*********************************/
 /* *** Mise en page partagée *** */
+/*********************************/
 
 html {
     background-color: #34040D;
@@ -56,7 +45,19 @@ button:not(:hover) {
     border: #CA5D36;
 }
 
-/* Barre de recherche et liste de recherches favorites */
+/* Barre de navigation */
+
+nav {
+    width: 96%;
+    margin: auto;
+    margin-top: 20px;
+}
+
+#logo {
+    text-decoration: none;
+}
+
+/* Barre de recherche et liste de recherches favorites (pour index.html et recherche.html) */
 
 #img-loupe, #img-etoile {
     height: 20px;
@@ -104,25 +105,8 @@ button:not(:hover) {
     filter: brightness(0) saturate(100%) invert(6%) sepia(39%) saturate(3775%) hue-rotate(327deg) brightness(105%) contrast(106%);
 }
 
-/* TENTATIVES D'ENLEVER LA BORDURE BLEUE QUAND SELECTION DE RECHERCHE = ECHEC
-input[type="search"]:focus {
-    border: solid 2px #F7B538;
-}
-#div-recherche-ingredients:focus {
-    --pico-primary-border: #F7B538;
-    --pico-primary-focus: #F7B538;
-    --pico-form-element-focus-color: #F7B538;
-    border: solid 2px #F7B538;
-}
-#div-recherche-cocktail {
-    --pico-primary-border: #F7B538;
-    --pico-primary-focus: #F7B538;
-    --pico-form-element-focus-color: #F7B538;
-    border: solid 2px #F7B538;
-}
-*/
-
 /* Boîte de confirmation de suppression d'une recherche favorite */
+
 #confirmation>div {
     display: flex;
     flex-direction: column;
@@ -146,8 +130,25 @@ input[type="search"]:focus {
     border: solid 2px #F7B538;
 }
 
-
+/**************************/
 /* *** Page d'accueil *** */
+/**************************/
+
+#img-fleche {
+    width: 100px;
+    margin: 10px 0;
+}
+
+/* Grille d'ingrédients */
+
+#grid-ingredients {
+    gap: 20px;
+}
+#grid-ingredients>div>img {
+    margin-bottom: 20px;
+}
+
+/* Creation de cocktails */
 
 #section-creation {
     display: flex;
@@ -159,17 +160,12 @@ input[type="search"]:focus {
     display: flex;
 }
 
-#img-fleche {
-    width: 100px;
-    margin: 10px 0;
-}
-
 #btn-valider-creation {
     margin-top: 20px;
 }
 
 
-/* *** Résultat cocktail *** */
+/* Résultat création de cocktail */
 
 #blast {
     position: absolute;
@@ -217,8 +213,9 @@ input[type="search"]:focus {
 }
 
 
-
+/*****************************/
 /* *** Page de recherche *** */
+/*****************************/
 
 #cadre-cocktail {
     display: flex;

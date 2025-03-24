@@ -12,12 +12,12 @@ for (let i=0; i < 4; i++) {
   let divGrid = document.createElement("div");
   
   for(let j=0; j < 4; j++) {
-    let idIng = Math.floor(Math.random() * 500);
+    let idIng = Math.floor(Math.random() * 616);
     let randomIng = await alchimix.searchIngredientById(idIng);
 
     // Certains id ne renvoient rien, on recommence donc jusqu'à en avoir un bon
     while (randomIng.ingredients == null) {
-      let idIng = Math.floor(Math.random() * 500);
+      let idIng = Math.floor(Math.random() * 616);
       randomIng = await alchimix.searchIngredientById(idIng);
     }
 
