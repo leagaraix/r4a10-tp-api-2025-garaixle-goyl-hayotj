@@ -49,7 +49,7 @@ viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
                 if((dataByName.drinks.find((elem) => elem.id == dataByIngredient.drinks[j].id)) == undefined){
                 }
                 */    
-                    viewRecherche.resultatContainer.innerHTML += "<div class='cocktail-affichage' id='"  +dataByName.drinks[i].idDrink +  "'> <img src=\"" + dataByIngredient.drinks[j].strDrinkThumb + "/small"+"\"/> <p>" + dataByIngredient.drinks[j].strDrink + "</p> </div>"
+                    viewRecherche.resultatContainer.innerHTML += "<div class='cocktail-affichage' id='"  +dataByIngredient.drinks[j].idDrink +  "'> <img src=\"" + dataByIngredient.drinks[j].strDrinkThumb + "/small"+"\"/> <p>" + dataByIngredient.drinks[j].strDrink + "</p> </div>"
                 
             }
         }
