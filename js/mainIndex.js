@@ -114,7 +114,7 @@ async function searchIng() {
     if(resultIngredient.ingredients !=null ){
         //On ajoute une div pour chaque résultat par nom
         for(let i=0; i < resultIngredient.ingredients.length; i++){
-            viewIndex.resultatIngredients.innerHTML += '<img id=' + resultIngredient.ingredients[i].strIngredient + ' class="ingredient" src="https://www.thecocktaildb.com/images/ingredients/' + (resultIngredient.ingredients[i].strIngredient).toLowerCase() + '-small.png">'
+            viewIndex.resultatIngredients.innerHTML += '<img id="' + resultIngredient.ingredients[i].strIngredient + '" class="ingredient" src="https://www.thecocktaildb.com/images/ingredients/' + (resultIngredient.ingredients[i].strIngredient).toLowerCase() + '-small.png" title="'+ resultIngredient.ingredients[i].strIngredient + '">'
         }
     }
   }
