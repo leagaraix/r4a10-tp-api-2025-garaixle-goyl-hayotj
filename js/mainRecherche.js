@@ -2,26 +2,23 @@ import { alchimix } from './model.js';
 import { viewRecherche } from './view.js';
 import { RecherchesFavorites } from './rechercheFavorites.js';
 
-//Déclaration des éléments du model
-let listIngredient = []
-
 // Récupération des données du LocalStorage
 alchimix.retrieveStateFromClient();
 
-// ### Gestion des recherches favorites
+// Gestion des recherches favorites
 
 new RecherchesFavorites(viewRecherche);
 
-//Pour rechercher depuis l'index
+// Pour rechercher depuis l'index
 viewRecherche.rechercheInput.value = alchimix.getInput();
 
-// ### Recherche #
+// ### Recherche ###
 
 async function search(event) {
     // Lance la recherche
     alchimix.setInput(rechercheInput.value);
     
-    //On remet le champ vide
+    // On remet le champ vide
     viewRecherche.resultatContainer.innerHTML = "";
     viewRecherche.attenteGif.style.display = "block";
 
@@ -29,7 +26,7 @@ async function search(event) {
     
 
     const dataByIngredient = await alchimix.searchByIngredient(viewRecherche.rechercheInput.value);
-    //On met à jour la vue
+    // On met à jour la vue
     if((dataByName.drinks == null && dataByIngredient.drinks == "no data found")  || (dataByName.drinks == "no data found" && dataByIngredient.drinks == "no data found") || (dataByName == undefined && dataByIngredient.drinks == undefined)){
         viewRecherche.resultatContainer.innerHTML = "<p id='aucun-resultat'>Aucun cocktail ne correspond à votre recherche.</p>"
     }else{
@@ -53,10 +50,11 @@ async function search(event) {
         
     }
     viewRecherche.attenteGif.style.display = "none";
-    //Ajout de l'affichage des cocktails avec click
+
+    // Affichage des détails des cocktails lors d'un clic
     for (let elem of viewRecherche.cocktailAffichage) {
         elem.addEventListener('click', async (event) =>{
-        // recuperation de l'id
+        // Récupération de l'id
         let idCocktail = elem.id;
 
         const detailsCocktails = await alchimix.getCocktail(idCocktail);
@@ -95,7 +93,7 @@ async function search(event) {
     };
 }
 
-// - Gestion de la saisie au clavier
+// Gestion de la saisie au clavier
 viewRecherche.rechercheButton.addEventListener("click", async (evt) => {
     search(evt);
 });
@@ -106,7 +104,7 @@ viewRecherche.rechercheInput.addEventListener("keydown", function(event) {
     }
 });
 
-//Recherche suite au chargement de la page
+// Recherche suite au chargement de la page
 if(viewRecherche.rechercheInput != ""){
     viewRecherche.rechercheButton.click();
 };

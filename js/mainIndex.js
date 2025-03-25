@@ -1,16 +1,17 @@
-// Import des modules nécessaires
 import { alchimix } from './model.js';
 import { viewIndex, viewRecherche } from './view.js';
 import { RecherchesFavorites } from './rechercheFavorites.js';
 
-//Déclaration des éléments du model
-let listIngredient = []
+// Déclaration des éléments du model
+let listIngredient = [];
 
 // Récupération des données du LocalStorage
 alchimix.retrieveStateFromClient();
 
-// ### Gestion des recherches favorites
+// Gestion des recherches favorites
 new RecherchesFavorites(viewIndex);
+
+// ### Chargement des ingrédients par défaut ###
 
 // Remplissage des ingrédients par défauts aléatoirement
 viewIndex.resultatIngredients.innerHTML = "";
@@ -39,7 +40,7 @@ for (let i=0; i < 4; i++) {
   viewIndex.resultatIngredients.appendChild(divGrid);
 }
 
-// ###Redirection vers la recherche
+// ### Redirection vers la recherche ###
 
 function search(event)  {
   alchimix.setInput(viewIndex.rechercheInput.value);
@@ -57,7 +58,7 @@ viewIndex.rechercheInput.addEventListener("keydown", function(event) {
   }
 })
 
-// ### Création de cocktails
+// ### Création de cocktails ###
 
 let prefixCocktails = ["Dynamo", "Tonic", "Ti'", "Royal"];
 
@@ -100,7 +101,8 @@ viewIndex.btnCreate.addEventListener("click", async function(event) {
   }
 });
 
-// ### Recherche d'ingrédients
+// ### Recherche d'ingrédients ###
+
 async function searchIng() {
 //On remet le champ vide
   viewIndex.resultatIngredients.innerHTML = "";
@@ -132,7 +134,8 @@ viewIndex.rechercheIngredientInput.addEventListener("keyup", function(event) {
   }
 })
 
-// ### Partie DragNDrop
+// ### DragNDrop des ingrédients ###
+
 let currentDroppable = null;
 
 document.addEventListener('mousedown', function(event) {

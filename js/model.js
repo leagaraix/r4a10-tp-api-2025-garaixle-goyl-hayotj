@@ -35,7 +35,6 @@ class Alchimix {
     this._favorisRechercheCocktail = Array();
   }
 
-
   setInput(input){
 
       this._input = encodeURIComponent(input);
@@ -45,7 +44,10 @@ class Alchimix {
   getInput(){
     return this._input;
   }
+
+  /************************************/
   /* GESTION DES RECHERCHES FAVORITES */
+  /************************************/
 
   /**
    * Renvoie le tableau des recherches favorites
@@ -80,7 +82,10 @@ class Alchimix {
     return (this._favorisRechercheCocktail.indexOf(recherche) !== -1);
   }
 
+
+  /****************************/
   /* GESTION DU LOCAL STORAGE */
+  /****************************/
 
   saveStateToClient() {
 
@@ -118,7 +123,9 @@ class Alchimix {
     }
   }
 
-  //Méthodes de recherches
+  /**************************/
+  /* Méthodes de recherches */
+  /**************************/
 
   /***Rechercher un ingrédient par son nom
    * @param {string} name
@@ -194,7 +201,6 @@ class Alchimix {
       return await response.json();
     }
   }
-
 
   /***
    * Rechercher si un cocktail existe ou non par une liste d'ingrédients, si oui on le renvoie, sinon, on renvoie null
@@ -278,10 +284,8 @@ class Alchimix {
         })
       }
       
-      
     }
 
-    
   }
     
   /**
@@ -306,11 +310,11 @@ class Alchimix {
 
     }
 
-
   }
 
 }
 
+// Création de l'entité unique "alchimix"
 export const alchimix = new Alchimix();
 
 

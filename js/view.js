@@ -78,11 +78,8 @@ export const viewRecherche = {
   btnFermerRecette: document.getElementById("btn-fermer-recette"),
   cocktailAffichage : document.getElementsByClassName('cocktail-affichage'),
 
-  
-
   resultatContainer : document.getElementById("grid-cocktails"),
 
   attenteGif : document.getElementById('attente'),
-
 
 };

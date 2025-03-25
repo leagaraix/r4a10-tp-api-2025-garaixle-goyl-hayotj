@@ -59,6 +59,11 @@ nav {
 
 /* Barre de recherche et liste de recherches favorites (pour index.html et recherche.html) */
 
+/*Attente gif*/
+#attente{
+    display:none;
+}
+
 #img-loupe, #img-etoile {
     height: 20px;
 }
@@ -137,6 +142,7 @@ nav {
     border: solid 2px #F7B538;
 }
 
+
 /**************************/
 /* *** Page d'accueil *** */
 /**************************/
@@ -168,7 +174,7 @@ nav {
     text-align: center;
 }
 
-/* Creation de cocktails */
+/* Création de cocktails */
 
 #section-creation {
     display: flex;
@@ -274,9 +280,4 @@ nav {
     position: absolute;
     top: 10%;
     right: 10%;
-}
-
-/*Attente gif*/
-#attente{
-    display:none;
 }

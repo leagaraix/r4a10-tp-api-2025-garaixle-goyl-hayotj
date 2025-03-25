@@ -3,7 +3,6 @@ import { alchimix } from './model.js';
 export class RecherchesFavorites {
 
     constructor(view) {
-        // Stocke la vue associée à la page
         this.view = view; 
         this.alchimix = alchimix;
         this.init();
