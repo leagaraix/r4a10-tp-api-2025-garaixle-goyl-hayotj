@@ -68,7 +68,6 @@ class Alchimix {
    * Supprime une recherche de cocktail des favoris
    */
   deleteRechercheCocktail(recherche) {
-    console.log("On accède à deleteRechercheCocktail().");
     let position = this._favorisRechercheCocktail.indexOf(recherche);
     this._favorisRechercheCocktail.splice(position, 1);
     this.saveStateToClient();
@@ -298,17 +297,8 @@ class Alchimix {
     } else {
 
       let detailsCocktail = await response.json();
-      console.log("Détails :")
-      console.log(detailsCocktail);
-
       let plusMieux = detailsCocktail['drinks'][0];
-      console.log("Plus mieux :")
-      console.log(plusMieux);
-
       let id = plusMieux['idDrink'];
-      console.log("id :")
-      console.log(id);
-
 
       // Renvoyer le tableau avec les détails
 
