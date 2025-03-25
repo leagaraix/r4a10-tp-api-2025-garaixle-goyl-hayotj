@@ -162,6 +162,12 @@ nav {
     cursor: grabbing;
 }
 
+#information {
+    font-size: small;
+    font-style: italic;
+    text-align: center;
+}
+
 /* Creation de cocktails */
 
 #section-creation {
@@ -172,12 +178,18 @@ nav {
 
 #bloc-creation {
     display: flex;
+    gap: 50px;
 }
 
 #btn-valider-creation {
     margin-top: 20px;
 }
 
+#img-verre {
+    width: 50%;
+    border-radius: 50px;
+    padding: 10px;
+}
 
 /* Résultat création de cocktail */
 
