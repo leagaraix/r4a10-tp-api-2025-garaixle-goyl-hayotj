@@ -37,7 +37,7 @@ async function search(event) {
         if(dataByName.drinks !=null ){
             //On ajoute une div pour chaque résultat par nom
             for(let i=0; i < dataByName.drinks.length; i++){
-                viewRecherche.resultatContainer.innerHTML += "<div class='cocktail-affichage' id='"  +dataByName.drinks[i].idDrink +  "'><img src=\"" + dataByName.drinks[i].strDrinkThumb + "/small"+"\"/> <p>" + dataByName.drinks[i].strDrink + "</p></div>"
+                viewRecherche.resultatContainer.innerHTML += "<div class='cocktail-affichage' id='"  +dataByName.drinks[i].idDrink +  "'><img class=\"grid-img-cocktail\" src=\"" + dataByName.drinks[i].strDrinkThumb + "/small"+"\"/> <p>" + dataByName.drinks[i].strDrink + "</p></div>"
             }
         }
         

@@ -226,6 +226,10 @@ nav {
     max-width: 200px;
 }
 
+.grid-img-cocktail:hover{
+    cursor:pointer;
+}
+
 
 /*****************************/
 /* *** Page de recherche *** */
